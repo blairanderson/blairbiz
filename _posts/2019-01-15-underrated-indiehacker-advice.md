@@ -10,19 +10,16 @@ categories: Business
 {% capture quicklink %}<a target="_blank" href="https://textarea.netlify.app/?text=I%2520am%2520the%2520founder%2520of%2520%255BINSERT%2520COMPANY%2520NAME%255D%2520and%2520I%2520am%2520reaching%2520out%2520to%2520a%2520small%2520group%2520of%2520people%2520who%2520we%2520think%2520would%2520be%2520perfect%2520for%2520what%2520we%2520are%2520building.%250A%250A%255BProduct%2520X%255D%2520does%2520%255BABC%255D%2520and%2520helps%2520companies%2520succeed%2520at%2520%255BXYZ%255D.%250A%250AAttached%2520is%2520a%2520short%2520GIF%2520showing%2520how%2520it%2520works.%250A%250AWe%2520would%2520love%2520to%2520have%2520you%2520try%2520out%2520the%2520product%2C%2520and%2520are%2520open%2520to%2520any%2520feedback%2520that%2520would%2520help%2520your%2520company%2520be%2520more%2520successful.%250A%250AFeel%2520free%2520to%2520signup%2520%28%2520www.example.com%2Fsignup%2520%29%2520and%2520send%2520any%2520questions%2520you%2520might%2520have%21">
 Link To Text</a>{% endcapture %}
 
-{{quicklink}}
 
 You are here because you need to answer these questions:
-
-### - How do I get my first customers?
-
-### - How do we get more leads to our site?
-
-### - Do you have any tips for leadgen / growth for startups?
+- How do I get my first customers?
+- How do we get more leads to our site?
+- Do you have any tips for leadgen / growth for startups?
 
 ---
 
-The answer is hidden inside [this interview](https://blog.ycombinator.com/growth-ama-with-yc-partner-gustaf-alstromer/) with [Gustaf Alströmer](https://twitter.com/gustaf) and i'm posting here for preservation and added thoughts.
+The answer is hidden inside [this interview](https://www.ycombinator.com/blog/growth-ama-with-yc-partner-gustaf-alstromer/) with [Gustaf Alströmer](https://twitter.com/gustaf) and i'm posting here 
+for preservation and added thoughts.
 
 #### 5 Steps to Building your Audience:
 

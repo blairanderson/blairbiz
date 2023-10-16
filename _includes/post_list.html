@@ -42,7 +42,11 @@
 
       <p class="post-meta">
         {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+        {% if post.updated %}
+        Updated on {{ post.updated | date: date_format }}
+        {% else %}
         Posted on {{ post.date | date: date_format }}
+        {% endif %}
       </p>
 
       {% if thumbnail != "" %}

@@ -3,7 +3,7 @@ layout: post
 title: "The most underrated indie hacker advice"
 # description: "How to get my first customers? / How to get more leads? / Tips startup for lead-gen & growth?"
 date: 2019-01-15
-updated: 2022-03-09
+updated: 2023-10-09
 categories: Business
 ---
 

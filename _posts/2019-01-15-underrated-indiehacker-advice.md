@@ -18,7 +18,7 @@ You are here because you need to answer these questions:
 
 ---
 
-The answer is hidden inside [this interview](https://www.ycombinator.com/blog/growth-ama-with-yc-partner-gustaf-alstromer/) with [Gustaf Alströmer](https://twitter.com/gustaf) and i'm posting here 
+The answer is hidden inside [this interview](https://youtu.be/T9ikpoF2GH0?t=178) with [Gustaf Alströmer](https://twitter.com/gustaf) and i'm posting here 
 for preservation and added thoughts.
 
 #### 5 Steps to Building your Audience:

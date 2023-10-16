@@ -22,7 +22,15 @@
 
 <header class="header-section {% if page.cover-img %}has-img{% endif %}">
 {% if page.cover-img %}
-<div class="big-img intro-header">
+
+<style>
+  .cover-position {
+    object-fit: cover; 
+    object-position: 100% 0;
+  }
+</style>
+
+<div class="big-img cover-position intro-header">
   <div class="container-md">
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">

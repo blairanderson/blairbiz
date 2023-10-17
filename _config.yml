@@ -21,6 +21,7 @@ author: Blair Anderson
 
 navbar-links:
   About Me: "aboutme"
+  Text Me: "sms:+15153755550"
   Resources:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
@@ -52,9 +53,9 @@ social-network-links:
   email: "blair@andersonassociates.net"
   rss: false  # remove this line if you don't want to show an RSS link at the bottom
   tiktok: '@blair.biz'
-  youtube: '@blairbiz'
+  youtube: '@blairbiz/featured?reload=9&sub_confirmation=1'
   instagram: 'blair.biz'
-  
+  telephone: +14258201767
   twitter: blairanderson
   linkedin: andersonblair
 # github: blairanderson
@@ -64,7 +65,7 @@ social-network-links:
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
 #  spotify: yourname
-#  telephone: +14159998888
+
 #  steam: deanat78
 #  twitch: yourname
 #  yelp: yourname

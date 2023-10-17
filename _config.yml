@@ -22,9 +22,9 @@ author: Blair Anderson
 navbar-links:
   About Me: "aboutme"
   Text Me: "sms:+14258201767"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
+#  Resources:
+#    - Beautiful Jekyll: "https://beautifuljekyll.com"
+#    - Learn markdown: "https://www.markdowntutorial.com/"
 
 ################
 # --- Logo --- #
@@ -127,8 +127,8 @@ keywords: "Amazon, FBA, Tiktok, ChatGPT, AI, LLM, Automation, VendorCentral"
 
 # Personalize the colours in your website. Colour values can be any valid CSS colour
 
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
+navbar-col: "#404040"
+navbar-text-col: "#EAEAEA"
 navbar-border-col: "#DDDDDD"
 page-col: "#FFFFFF"
 text-col: "#404040"

@@ -5,105 +5,157 @@
 {% if page.cover-img or page.title %}
 
 {% if page.cover-img %}
-  <div id="header-big-imgs" data-num-img={% if page.cover-img.first %}{{ page.cover-img.size }}{% else %}1{% endif %}
-    {% for bigimg in page.cover-img %}
-    {% assign imgnum = forloop.index %}
-    {% for imginfo in bigimg %}
-      {% if imginfo[0] %}
-      data-img-src-{{ imgnum }}="{{ imginfo[0] | absolute_url }}"
-      data-img-desc-{{ imgnum }}="{{ imginfo[1] }}"
-    {% else %}
-      data-img-src-{{ imgnum }}="{{ imginfo | absolute_url }}"
-    {% endif %}
-    {% endfor %}
-    {% endfor %}
-  ></div>
+<div id="header-big-imgs" data-num-img={% if page.cover-img.first %}{{ page.cover-img.size }}{% else %}1{% endif %}
+     {% for bigimg in page.cover-img %}
+     {% assign imgnum=forloop.index %}
+     {% for imginfo in bigimg %}
+     {% if imginfo[0] %}
+     data-img-src-{{ imgnum }}="{{ imginfo[0] | absolute_url }}"
+     data-img-desc-{{ imgnum }}="{{ imginfo[1] }}"
+     {% else %}
+     data-img-src-{{ imgnum }}="{{ imginfo | absolute_url }}"
+     {% endif %}
+     {% endfor %}
+     {% endfor %}
+></div>
 {% endif %}
 
 <header class="header-section {% if page.cover-img %}has-img{% endif %}">
-{% if page.cover-img %}
+    {% if page.cover-img %}
+    <style>
+        .cover-position {
+            background-size: cover;
+            background-position: center center;
+            min-height: 100vh;
+            min-height: 100dvh !important;
+        }
 
-<style>
-  .cover-position {
-    background-size: cover;
-    background-position: center center;
-    height: 100vh;
-    height: 100dvh !important;
-  }
-</style>
+        .big-img-card {
+            font-size: 2rem;
+            text-align: center;
+            background-color: #000000cc !important;
+            color: white;
+            padding: 10px;
+            background-image: linear-gradient(90deg, white 50%, transparent 50%),
+            linear-gradient(90deg, white 50%, transparent 50%),
+            linear-gradient(0deg, white 50%, transparent 50%),
+            linear-gradient(0deg, white 50%, transparent 50%);
+            background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+            background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+            background-position: left top, right bottom, left bottom, right top;
+            animation: border-dance 1s infinite linear;
+        }
 
-<div class="big-img cover-position intro-header">
-  <div class="container-md">
-    <div class="row">
-      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-        <div class="{{ include.type }}-heading">
-          <h1>{% if page.title %}{{ page.title | strip_html }}{% else %}<br/>{% endif %}</h1>
-          {% if page.subtitle %}
-            {% if include.type == "page" %}
-              <hr class="small">
-              <span class="{{ include.type }}-subheading">{{ page.subtitle | strip_html }}</span>
-            {% else %}
-              <h2 class="{{ include.type }}-subheading">{{ page.subtitle | strip_html }}</h2>
-            {% endif %}
-          {% endif %}
+        @keyframes border-dance {
+            0% {
+                background-position: left top, right bottom, left bottom, right top;
+            }
+            100% {
+                background-position: left 15px top, right 15px bottom, left bottom 15px, right top 15px;
+            }
+        }
+    </style>
+    <div class="big-img cover-position intro-header">
+        <div class="container-md">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+                    <div class="{{ include.type }}-heading">
+                        <h1>{% if page.title %}{{ page.title | strip_html }}{% else %}<br/>{% endif %}</h1>
+                        {% if page.subtitle %}
+                        {% if include.type == "page" %}
+                        <hr class="small">
+                        <span class="{{ include.type }}-subheading">{{ page.subtitle | strip_html }}</span>
+                        {% else %}
+                        <h2 class="{{ include.type }}-subheading">{{ page.subtitle | strip_html }}</h2>
+                        {% endif %}
+                        {% endif %}
 
-          {% if include.type == "post" %}
-            <span class="post-meta">Posted on {{ page.date | date: date_format }}</span>
-            {% if page.last-updated %}
-              <span class="post-meta">
+                        {% if include.type == "post" %}
+                        <span class="post-meta">Posted on {{ page.date | date: date_format }}</span>
+                        {% if page.last-updated %}
+                        <span class="post-meta">
+                        <span class="d-none d-md-inline middot">&middot;</span>
+                            Last updated {{ page.last-updated | date: date_format }}
+                        </span>
+                        {% endif %}
+                        {% if page.readtime %}
+                        {% include readtime.html %}
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm p-3">
+                    <div class="big-img-card h-100 card">
+                        Distributors &<br>Manufacturers
+                        <a href="/distributors" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="col-sm p-3">
+                    <div class="big-img-card h-100 card">
+                        Wholesale<br>FBA/FBM
+                        <a href="/wholesale" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="col-sm p-3">
+                    <div class="big-img-card h-100 card">
+                        Private<br>Label
+                        <a href="/privatelabel" class="stretched-link"></a>
+                    </div>
+                </div>
+                <div class="col-sm p-3">
+                    <div class="big-img-card h-100 card">
+                        Amazon<br>Arbitrage
+                        <a href="/arbitrage" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span class='img-desc'></span>
+    </div>
+    {% endif %}
+    <div class="intro-header no-img">
+        <div class="container-md">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+                    <div class="{{ include.type }}-heading">
+                        <h1>{% if page.title %}{{ page.title | strip_html }}{% else %}<br/>{% endif %}</h1>
+                        {% if page.subtitle %}
+                        {% if include.type == "page" %}
+                        <hr class="small">
+                        <span class="{{ include.type }}-subheading">{{ page.subtitle | strip_html }}</span>
+                        {% else %}
+                        <h2 class="{{ include.type }}-subheading">{{ page.subtitle | strip_html }}</h2>
+                        {% endif %}
+                        {% endif %}
+
+                        {% if include.type == "post" %}
+                        <span class="post-meta">Posted on {{ page.date | date: date_format }}</span>
+                        {% if page.last-updated %}
+                        <span class="post-meta">
                 <span class="d-none d-md-inline middot">&middot;</span>
                 Last updated {{ page.last-updated | date: date_format }}
               </span>
-            {% endif %}
-            {% if page.readtime %}
-              {% include readtime.html %}
-            {% endif %}
-          {% endif %}
+                        {% endif %}
+                        {% if page.readtime %}
+                        {% include readtime.html %}
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <span class='img-desc'></span>
-</div>
-{% endif %}
-<div class="intro-header no-img">
-  <div class="container-md">
-    <div class="row">
-      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-        <div class="{{ include.type }}-heading">
-          <h1>{% if page.title %}{{ page.title | strip_html }}{% else %}<br/>{% endif %}</h1>
-          {% if page.subtitle %}
-            {% if include.type == "page" %}
-              <hr class="small">
-              <span class="{{ include.type }}-subheading">{{ page.subtitle | strip_html }}</span>
-            {% else %}
-              <h2 class="{{ include.type }}-subheading">{{ page.subtitle | strip_html }}</h2>
-            {% endif %}
-          {% endif %}
 
-          {% if include.type == "post" %}
-            <span class="post-meta">Posted on {{ page.date | date: date_format }}</span>
-            {% if page.last-updated %}
-              <span class="post-meta">
-                <span class="d-none d-md-inline middot">&middot;</span>
-                Last updated {{ page.last-updated | date: date_format }}
-              </span>
-            {% endif %}
-            {% if page.readtime %}
-              {% include readtime.html %}
-            {% endif %}
-          {% endif %}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-{% if page.header-extra %}
-  {% for file in page.header-extra %}
+    {% if page.header-extra %}
+    {% for file in page.header-extra %}
     {% include {{ file }} %}
-  {% endfor %}
-{% endif %}
+    {% endfor %}
+    {% endif %}
 
 </header>
 

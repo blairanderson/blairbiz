@@ -59,7 +59,7 @@
         <div class="container-md">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-                    <div class="{{ include.type }}-heading">
+                    <div class="{{ include.type }}-heading" style="padding-bottom: 0px !important;">
                         <h1>{% if page.title %}{{ page.title | strip_html }}{% else %}<br/>{% endif %}</h1>
                         {% if page.subtitle %}
                         {% if include.type == "page" %}
@@ -88,30 +88,14 @@
         </div>
         <div class="container">
             <div class="row">
+                {% for card in site.data.cards.list %}
                 <div class="col-sm p-3">
                     <div class="big-img-card h-100 card">
-                        Distributors &<br>Manufacturers
-                        <a href="/distributors" class="stretched-link"></a>
+                        {{ card.title }}
+                        <a href="{{ card.link }}" class="stretched-link"></a>
                     </div>
                 </div>
-                <div class="col-sm p-3">
-                    <div class="big-img-card h-100 card">
-                        Wholesale<br>FBA/FBM
-                        <a href="/wholesale" class="stretched-link"></a>
-                    </div>
-                </div>
-                <div class="col-sm p-3">
-                    <div class="big-img-card h-100 card">
-                        Private<br>Label
-                        <a href="/privatelabel" class="stretched-link"></a>
-                    </div>
-                </div>
-                <div class="col-sm p-3">
-                    <div class="big-img-card h-100 card">
-                        Amazon<br>Arbitrage
-                        <a href="/arbitrage" class="stretched-link"></a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
 

@@ -27,7 +27,8 @@ layout: null
     <link rel="stylesheet" href="/reveal/plugin/highlight/monokai.css">
 </head>
 <body>
-{% assign slides_dir = page.path | remove: '/index.md' %}
+{% assign slides_dir = page.path | remove: '.md' %}
+<!--<h1>{{slides_dir}}</h1>-->
 <div class="reveal">
     <div class="slides">
         {% assign presentation_data = site.data.reveal[slides_dir] %}

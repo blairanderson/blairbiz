@@ -45,6 +45,21 @@ common-js:
 
       {{ content }}
 
+      <ul class="posts-list list-unstyled" role="list">
+        {%- assign presentations = site.pages | where: "layout", "reveal" -%}
+        {% for page in presentations %}
+        <li class="post-preview">
+          <article>
+            <a href="{{page.url}}">
+              <h2 class="post-title">
+                <span class="badge text-white bg-primary">GUIDE!</span>
+                {{page.title | strip_html }}</h2>
+            </a>
+          </article>
+        </li>
+        {% endfor %}
+      </ul>
+
       {% include post_list.html %}
 
       {% if page.after-content %}

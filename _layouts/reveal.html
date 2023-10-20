@@ -1,0 +1,74 @@
+---
+layout: null
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    {% capture title %}
+    {%- if page.share-title -%}
+    {{ page.share-title | strip_html | xml_escape }}
+    {%- elsif page.title -%}
+    {{ page.title | strip_html | xml_escape  }}
+    {%- else -%}
+    {{ site.title | strip_html | xml_escape }}
+    {%- endif -%}
+    {% endcapture %}
+
+    <title>{{title}}</title>
+
+    <link rel="stylesheet" href="/reveal/reset.css">
+    <link rel="stylesheet" href="/reveal/reveal.css">
+    <link rel="stylesheet" href="/reveal/theme/black.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="/reveal/plugin/highlight/monokai.css">
+</head>
+<body>
+{% assign slides_dir = page.path | remove: '/index.md' %}
+<div class="reveal">
+    <div class="slides">
+        {% assign presentation_data = site.data.reveal[slides_dir] %}
+        {% for slide in presentation_data.slides %}
+        <section  data-background-color="rgb(70, 70, 255)">
+            <div>
+                {{ slide.content | markdownify }}
+            </div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <div>
+                <small>
+                    Question for Blair? <a href="#/grand-finale">Go to the end...</a>
+                </small>
+            </div>
+        </section>
+        {% endfor %}
+        <section>
+            <h2>Questions?</h2>
+            <h3><a href="/">Contact Blair!</a></h3>
+            <h4>
+                What to share this presentation? <br>
+                <a href="?print-pdf">Print This Presentation</a>
+            </h4>
+        </section>
+    </div>
+</div>
+<script src="/reveal/reveal.js"></script>
+<script src="/reveal/plugin/notes/notes.js"></script>
+<script src="/reveal/plugin/markdown/markdown.js"></script>
+<script src="/reveal/plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+    });
+</script>
+</body>
+</html>

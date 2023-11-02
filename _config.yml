@@ -21,7 +21,8 @@ author: Blair Anderson
 
 navbar-links:
   About Me: "aboutme"
-  Text Me: "sms:+14258201767"
+  Contact: "contact"
+  Text Me: "sms:+14258201767?body=Hi%20Blair%2C%20I%20want%20to%20talk%20to%20you%20about%20your%20services."
 #  Resources:
 #    - Beautiful Jekyll: "https://beautifuljekyll.com"
 #    - Learn markdown: "https://www.markdowntutorial.com/"

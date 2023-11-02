@@ -2,13 +2,13 @@ list:
   - title: Distributors &<br>Manufacturers
     link: /distributors
     image: /assets/images/cards/distributors.jpg
-  - title: Wholesale<br>FBA/FBM
+  - title: Dedicated 3P<br>Wholesale
     link: /wholesale
     image: /assets/images/cards/wholesale.jpg
-  - title: Private<br>Label
+  - title: Brands &<br>Private Label
     link: /privatelabel
     image: /assets/images/cards/privatelabel.jpg
-  - title: Amazon<br>Arbitrage
-    link: /arbitrage
-    image: /assets/images/cards/arbitrage.jpg
+#  - title: Amazon<br>Arbitrage
+#    link: /arbitrage
+#    image: /assets/images/cards/arbitrage.jpg
 

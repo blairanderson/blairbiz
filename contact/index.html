@@ -2,3 +2,60 @@
 title: Contact Blair Anderson
 layout: page
 ---
+
+{% capture inputClassNames %}p-2 form-control text-center border bg-transparent w-100{% endcapture %}
+
+<form data-netlify="true" name="contact" action="/thanks/" netlify-honeypot="bot-field" netlify>
+    <fieldset class="border-0 p-4 text-center">
+        <div class="">
+            <input type="hidden" name="received_date" id="received_date">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label class="d-block fw-normal lh-1 mb-2" for="email">Your Email</label>
+                    <input class="{{inputClassNames}}"
+                           type="email" name="email" id="email"
+                           required autocomplete="email">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="d-block fw-normal lh-1 mb-2" for="name">Your Name</label>
+                    <input class="{{inputClassNames}}"
+                           name="name" type="text" autocomplete="name" id="name"
+                           required>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <label class="d-block fw-normal lh-1 mb-2" for="phone">Your Phone Number</label>
+            <div class="row">
+                <div class="col-12 col-md-7">
+                    <input class="{{inputClassNames}}"
+                           type="tel" name="phone" id="phone"
+                           required autocomplete="tel">
+                </div>
+                <div class="col-12 col-md-5">
+                    <input class="{{inputClassNames}}"
+                           type="tel"
+                           name="tel-extension"
+                           autocomplete="tel-extension">
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <label class="d-block fw-normal lh-1 mb-2" for="message">Your Message</label>
+            <textarea class="{{inputClassNames}}" name="message"></textarea>
+        </div>
+    </fieldset>
+    <div style="max-width: 310px;margin: auto;" data-netlify-recaptcha></div>
+    <div class="p-4">
+        <input
+                class="btn btn-primary btn-block"
+                type="submit" value="Send Message">
+    </div>
+
+
+
+    <p style="color: transparent;">
+        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+    </p>
+</form>

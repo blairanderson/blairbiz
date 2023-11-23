@@ -36,3 +36,33 @@
     <script src="{{ js | relative_url }}"></script>
   {% endfor %}
 {% endif %}
+
+{% if page.path contains 'thanks' %}
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    var d = new Date();
+    var n = d.getDay();
+    var now = d.getHours() + '.' + d.getMinutes();
+    var weekdays = [
+      ['Sunday'],
+      ['Monday', 8.0, 17.0],
+      ['Tuesday', 8.0, 17.0],
+      ['Wednesday', 8.0, 17.0],
+      ['Thursday', 8.0, 17.0],
+      ['Friday', 8.0, 17.0],
+      ['Saturday']
+    ];
+    var day = weekdays[n];
+    var response =
+            now > day[1] && now < day[2]
+                    ? 'Stay close to your phone...<br> We typically respond <a href="http://e.ggtimer.com/1hour" target="_blank">within an hour</a>!'
+                    : 'We typically respond to weekend requests early Monday morning.';
+    var responseElement = document.getElementById('response-time');
+    responseElement.style.display = 'none';
+    responseElement.innerHTML = response;
+    setTimeout(function() {
+      responseElement.style.display = '';
+    }, 1);
+  });
+</script>
+{% endif %}

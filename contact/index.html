@@ -6,12 +6,11 @@ layout: page
 {% capture inputClassNames %}p-2 form-control text-center border bg-transparent w-100{% endcapture %}
 
 <form data-netlify="true" name="contact" action="/thanks/" netlify-honeypot="bot-field" netlify>
-    <fieldset class="border-0 p-4 text-center">
-
+    <fieldset class="border-0 p-4">
             <input type="hidden" name="received_date" id="received_date">
             <div class="row">
-                <div class="col-12 col-sm-6">
-                    <label class="d-block fw-normal lh-1 mb-2" for="email">Your Email</label>
+                <div class="col-12 col-sm-6  text-center text-sm-right">
+                    <label class="d-block fw-normal  lh-1 mb-2" for="email">Your Email</label>
                 </div>
                 <div class="col-12 col-sm-6">
                     <input class="{{inputClassNames}}"
@@ -21,7 +20,7 @@ layout: page
                 </div>
             </div>
         <div class="row">
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-6 text-center text-sm-right">
                 <label class="d-block fw-normal lh-1 mb-2" for="name">Your Name</label>
             </div>
             <div class="col-12 col-sm-6">
@@ -30,7 +29,7 @@ layout: page
         </div>
 
         <div class="row">
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-6 text-center text-sm-right">
                 <label class="d-block fw-normal lh-1 mb-2" for="phone">Your Phone Number</label>
             </div>
             <div class="col-12 col-sm-6">

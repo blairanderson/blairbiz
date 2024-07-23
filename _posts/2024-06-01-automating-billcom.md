@@ -48,5 +48,5 @@ function moveToNearestMonday() {
     document.getElementById('saveAndNewButton').click();
 }
 
-window.mondayInt = setInterval(moveToNearestMonday, 4000);
+window.mondayInt = setInterval(moveToNearestMonday, 6500);
 ```

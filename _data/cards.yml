@@ -1,14 +1,7 @@
 list:
-  - title: Distributors &<br>Manufacturers
-    link: /distributors
-    image: /assets/images/cards/distributors.jpg
-  - title: Dedicated 3P<br>Wholesale
-    link: /wholesale
-    image: /assets/images/cards/wholesale.jpg
-  - title: Brands &<br>Private Label
-    link: /privatelabel
-    image: /assets/images/cards/privatelabel.jpg
-#  - title: Amazon<br>Arbitrage
-#    link: /arbitrage
-#    image: /assets/images/cards/arbitrage.jpg
-
+  - title: Custom<br>Software
+    link: /services#custom-software
+  - title: AI &<br>Automation
+    link: /services#ai-automation
+  - title: Consulting &<br>Strategy
+    link: /services#consulting

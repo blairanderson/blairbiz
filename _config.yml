@@ -20,9 +20,10 @@ author: Blair Anderson
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
+  Services: "services"
+  About: "about"
+  Case Studies: "case-studies"
   Contact: "contact"
-  Text Me: "sms:+14258201767?body=Hi%20Blair%2C%20I%20want%20to%20talk%20to%20you%20about%20your%20services."
 #  Resources:
 #    - Beautiful Jekyll: "https://beautifuljekyll.com"
 #    - Learn markdown: "https://www.markdowntutorial.com/"
@@ -52,14 +53,12 @@ round-avatar: true
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
   email: "blair@andersonassociates.net"
-  rss: false  # remove this line if you don't want to show an RSS link at the bottom
-  tiktok: '@blair.biz'
-  youtube: '@blairbiz/featured?reload=9&sub_confirmation=1'
-  instagram: 'blair.biz'
+  rss: false
+  github: blairanderson
+  youtube: '@blairbiz/featured'
+  linkedin: andersonblair
   telephone: +14258201767
   twitter: blairanderson
-  linkedin: andersonblair
-# github: blairanderson
 #  medium: yourname
 #  reddit: yourname
 #  xing: yourname
@@ -120,7 +119,7 @@ edit_page_button: false
 navbar-var-length: false
 
 # The keywords to associate with your website, for SEO purposes
-keywords: "Amazon, FBA, Tiktok, ChatGPT, AI, LLM, Automation, VendorCentral"
+keywords: "Custom Software, AI, Automation, Software Agency, Web Development, Rails, React, Consulting, Kirkland WA"
 
 ######################################
 # --- Colours / background image --- #

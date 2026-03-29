@@ -1,62 +1,47 @@
-<nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom {% if page.nav-short %}top-nav-short-permanent{% else %}top-nav-regular{% endif %}">
+<nav class="border-b border-gray-200">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+      <a href="{{ '/' | absolute_url }}" class="text-lg font-bold tracking-tight text-gray-900 hover:text-gray-700">
+        {{ site.title }}
+      </a>
 
-  {%- if site.title-img -%}
-    <a class="navbar-brand navbar-brand-logo" href="{{ '/' | absolute_url }}"><img alt="{{ site.title }} Logo" src="{{ site.title-img | relative_url}}"/></a>
-  {%- elsif site.title -%}
-    <a class="navbar-brand" href="{{ '/' | absolute_url }}">{{ site.title }}</a>
-  {%- endif -%}
+      <!-- Mobile menu button -->
+      <button type="button" id="mobile-menu-btn" class="sm:hidden inline-flex items-center justify-center p-2 rounded text-gray-500 hover:text-gray-900" aria-expanded="false">
+        <span class="sr-only">Open menu</span>
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path id="menu-open-icon" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          <path id="menu-close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="main-navbar">
-    <ul class="navbar-nav ml-auto">
-      {%- for link in site.navbar-links -%}
-        {%- if link[1].first %}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ link[0] }}</a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              {%- for childlink in link[1] -%}
-                {%- for linkparts in childlink %}
-                  <a class="dropdown-item" href="{{ linkparts[1] | relative_url }}">{{ linkparts[0] }}</a>
-                {%- endfor -%}
-              {%- endfor %}
-            </div>
-          </li>
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
-          </li>
-        {%- endif -%}
-      {%- endfor -%}
-      {% if site.post_search %}
-        <li class="nav-item">
-          <a class="nav-link" id="nav-search-link" href="#" title="Search">
-            <span id="nav-search-icon" class="fa fa-search"></span>
-            <span id="nav-search-text">Search</span>
-          </a>
-        </li>
-      {%- endif -%}
-    </ul>
-  </div>
-
-  {% if site.navbar-extra %}
-    {% for file in site.navbar-extra %}
-      {% include {{ file }} %}
-    {% endfor %}
-  {% endif %}
-
-  {% if site.avatar and page.show-avatar != false %}
-    <div class="avatar-container">
-      <div class="avatar-img-border">
-        <a href="{{ '/' | absolute_url }}">
-          <img alt="Navigation bar avatar" class="avatar-img" src="{{ site.avatar | relative_url }}" />
-        </a>
+      <!-- Desktop nav -->
+      <div class="hidden sm:flex sm:items-center sm:gap-6">
+        {%- for link in site.navbar-links -%}
+          <a href="{{ link[1] | relative_url }}" class="text-sm text-gray-600 hover:text-gray-900">{{ link[0] }}</a>
+        {%- endfor -%}
       </div>
     </div>
-  {% endif %}
 
+    <!-- Mobile nav -->
+    <div id="mobile-menu" class="hidden sm:hidden pb-4">
+      <div class="flex flex-col gap-2">
+        {%- for link in site.navbar-links -%}
+          <a href="{{ link[1] | relative_url }}" class="block px-3 py-2 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded">{{ link[0] }}</a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
 </nav>
 
-{% include search.html %}
+<script>
+  document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+    var menu = document.getElementById('mobile-menu');
+    var openIcon = document.getElementById('menu-open-icon');
+    var closeIcon = document.getElementById('menu-close-icon');
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !expanded);
+    menu.classList.toggle('hidden');
+    openIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  });
+</script>

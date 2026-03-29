@@ -1,0 +1,14 @@
+{
+  "name": "blairbiz",
+  "private": true,
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/output.css --minify",
+    "dev:css": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/output.css --watch",
+    "dev": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/output.css --watch & bundle exec jekyll serve --livereload",
+    "build": "npm run build:css && bundle exec jekyll build"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.4",
+    "@tailwindcss/typography": "^0.5.16"
+  }
+}

@@ -2,30 +2,17 @@
 layout: base
 ---
 
-{% include header.html type="page" %}
+<div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+  {% if page.title %}
+  <header class="mb-8">
+    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">{{ page.title | strip_html }}</h1>
+    {% if page.subtitle %}
+    <p class="mt-2 text-lg text-gray-600">{{ page.subtitle | strip_html }}</p>
+    {% endif %}
+  </header>
+  {% endif %}
 
-<div class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}" role="main">
-  <div class="row">
-    <div class="{% if page.full-width %} col {% else %} col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 {% endif %}">
-      {% if page.before-content %}
-        <div class="before-content">
-          {% for file in page.before-content %}
-            {% include {{ file }} %}
-          {% endfor %}
-        </div>
-      {% endif %}
-
-      {{ content }}
-
-      {% if page.after-content %}
-        <div class="after-content">
-          {% for file in page.after-content %}
-            {% include {{ file }} %}
-          {% endfor %}
-        </div>
-      {% endif %}
-
-      {% include comments.html %}
-    </div>
+  <div class="prose max-w-none">
+    {{ content }}
   </div>
 </div>

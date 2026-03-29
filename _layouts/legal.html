@@ -1,0 +1,15 @@
+---
+layout: base
+---
+
+<div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+  {% if page.title %}
+  <header class="mb-8">
+    <h1 class="text-3xl font-bold tracking-tight">{{ page.title | strip_html }}</h1>
+  </header>
+  {% endif %}
+
+  <div class="prose max-w-none text-sm text-gray-700">
+    {{ content }}
+  </div>
+</div>

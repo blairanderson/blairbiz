@@ -4,37 +4,33 @@ subtitle: Tell us about your project
 layout: page
 ---
 
-{% capture inputClassNames %}p-2 form-control text-center border bg-transparent w-100{% endcapture %}
-
-<form action="https://forms.rizzness.com/f/nceHpcg0" method="POST">
-    <fieldset class="border-0 p-4">
-        <div class="mt-3">
-            <input class="{{inputClassNames}}"
+<form action="https://forms.rizzness.com/f/nceHpcg0" method="POST" class="max-w-lg mx-auto">
+    <fieldset class="space-y-4">
+        <div>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded text-center bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                    placeholder="Your Email"
                    type="email" name="email" id="email"
                    required autocomplete="email">
         </div>
-        <div class="mt-3">
-            <input class="{{inputClassNames}}" placeholder="Your Name" name="name" type="text" autocomplete="name"
+        <div>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded text-center bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                   placeholder="Your Name" name="name" type="text" autocomplete="name"
                    id="name" required>
         </div>
-
-        <div class="mt-3">
-
-            <input class="{{inputClassNames}}" type="tel" name="phone" id="phone" placeholder="Your Phone Number"
+        <div>
+            <input class="w-full px-3 py-2 border border-gray-300 rounded text-center bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                   type="tel" name="phone" id="phone" placeholder="Your Phone Number"
                    required autocomplete="tel">
-
         </div>
-
-        <div class="mt-3">
-            <label class="d-block fw-normal lh-1 mb-2" for="message">Your Message:</label>
+        <div>
+            <label class="block text-sm text-gray-600 mb-1" for="message">Your Message:</label>
             <textarea id="message" placeholder="Hi Blair, I'd like to talk about..."
-                      class="{{inputClassNames}}" name="message"></textarea>
+                      class="w-full px-3 py-2 border border-gray-300 rounded bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                      name="message" rows="4"></textarea>
         </div>
     </fieldset>
-    <div class="p-4">
-        <input
-                class="btn btn-primary btn-block"
+    <div class="mt-6">
+        <input class="w-full px-6 py-3 bg-gray-900 text-white font-medium rounded hover:bg-gray-700 transition-colors cursor-pointer"
                 type="submit" value="Send Message">
     </div>
 

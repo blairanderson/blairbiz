@@ -5,7 +5,7 @@ subtitle: Founder, BLAIR.BIZ
 redirect_from: "/aboutme"
 ---
 
-# About
+<p class="section-label">About the Founder</p>
 
 I'm Blair Anderson, founder of BLAIR.BIZ, a custom software agency focused on automation and AI based in Kirkland, WA.
 
@@ -23,15 +23,49 @@ In 2017, I founded **Anderson & Associates** and started combining my engineerin
 
 ## What I Bring
 
-- **Production engineering at scale** from Instacart
-- **15+ years of business operations** across e-commerce, supply chain, and vendor management
-- **Hands-on technical leadership** where I architect and build alongside your team
+<div class="grid sm:grid-cols-3 gap-6 mt-4 mb-8 not-prose">
+  <div class="value-prop">
+    <p class="value-prop-number">Engineering</p>
+    <p class="text-sm mt-1" style="color: var(--color-text-secondary);">Production engineering at scale from Instacart</p>
+  </div>
+  <div class="value-prop">
+    <p class="value-prop-number">Operations</p>
+    <p class="text-sm mt-1" style="color: var(--color-text-secondary);">15+ years of business operations across e-commerce, supply chain, and vendor management</p>
+  </div>
+  <div class="value-prop">
+    <p class="value-prop-number">Leadership</p>
+    <p class="text-sm mt-1" style="color: var(--color-text-secondary);">Hands-on technical leadership where I architect and build alongside your team</p>
+  </div>
+</div>
 
 ## Skills
 
-- **Engineering**: Ruby on Rails, React, System Architecture, API Integration, Database Design
-- **AI & Automation**: LLM Integration, Workflow Automation, Data Pipelines, Process Optimization
-- **Business**: Operations Strategy, Vendor Management, E-commerce, Performance Marketing
+<div class="not-prose mb-8">
+  <p class="section-label mb-3">Engineering</p>
+  <div class="flex flex-wrap gap-2 mb-4">
+    <span class="tech-tag">Ruby on Rails</span>
+    <span class="tech-tag">React</span>
+    <span class="tech-tag">System Architecture</span>
+    <span class="tech-tag">API Integration</span>
+    <span class="tech-tag">Database Design</span>
+  </div>
+
+  <p class="section-label mb-3">AI & Automation</p>
+  <div class="flex flex-wrap gap-2 mb-4">
+    <span class="tech-tag">LLM Integration</span>
+    <span class="tech-tag">Workflow Automation</span>
+    <span class="tech-tag">Data Pipelines</span>
+    <span class="tech-tag">Process Optimization</span>
+  </div>
+
+  <p class="section-label mb-3">Business</p>
+  <div class="flex flex-wrap gap-2">
+    <span class="tech-tag">Operations Strategy</span>
+    <span class="tech-tag">Vendor Management</span>
+    <span class="tech-tag">E-commerce</span>
+    <span class="tech-tag">Performance Marketing</span>
+  </div>
+</div>
 
 ## Let's Work Together
 

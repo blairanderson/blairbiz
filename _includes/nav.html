@@ -1,7 +1,7 @@
 <nav class="border-b" style="border-color: var(--color-border);">
   <div class="max-w-[960px] mx-auto px-6">
     <div class="flex items-center justify-between h-16">
-      <a href="{{ '/' | absolute_url }}" class="text-lg font-bold tracking-tight hover:opacity-70 transition-opacity" style="font-family: var(--font-body); color: var(--color-text);">
+      <a href="{{ '/' | absolute_url }}" class="text-lg font-bold tracking-tight hover:opacity-70 transition-opacity" style="font-family: var(--font-display); color: var(--color-text);">
         {{ site.title }}
       </a>
 
@@ -17,7 +17,8 @@
       <!-- Desktop nav -->
       <div class="hidden sm:flex sm:items-center sm:gap-6">
         {%- for link in site.navbar-links -%}
-          <a href="{{ link[1] | relative_url }}" class="text-sm transition-colors" style="font-family: var(--font-body); color: var(--color-text-secondary);" onmouseover="this.style.color='var(--color-text)'" onmouseout="this.style.color='var(--color-text-secondary)'">{{ link[0] }}</a>
+          {%- assign link_url = link[1] | relative_url -%}
+          <a href="{{ link_url }}" class="nav-link{% if page.url == link_url %} nav-link-active{% endif %}">{{ link[0] }}</a>
         {%- endfor -%}
       </div>
     </div>
@@ -26,7 +27,8 @@
     <div id="mobile-menu" class="hidden sm:hidden pb-4">
       <div class="flex flex-col gap-1">
         {%- for link in site.navbar-links -%}
-          <a href="{{ link[1] | relative_url }}" class="block px-3 py-2 text-sm rounded transition-colors" style="font-family: var(--font-body); color: var(--color-text-secondary);">{{ link[0] }}</a>
+          {%- assign link_url = link[1] | relative_url -%}
+          <a href="{{ link_url }}" class="block px-3 py-2 text-sm rounded transition-colors nav-link{% if page.url == link_url %} nav-link-active{% endif %}">{{ link[0] }}</a>
         {%- endfor -%}
       </div>
     </div>

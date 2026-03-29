@@ -44,11 +44,7 @@
 
   <link rel="stylesheet" href="{{ '/assets/css/output.css' | relative_url }}">
 
-  {% if page.css %}
-    {% for css in page.css %}
-      <link rel="stylesheet" href="{{ css | relative_url }}">
-    {% endfor %}
-  {% endif %}
+  <meta name="theme-color" content="#D97706">
 
   {% if site.fb_app_id %}
   <meta property="fb:app_id" content="{{ site.fb_app_id }}">

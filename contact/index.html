@@ -4,33 +4,35 @@ subtitle: Tell us about your project
 layout: page
 ---
 
-<form action="https://forms.rizzness.com/f/nceHpcg0" method="POST" class="max-w-[480px]">
-    <fieldset class="flex flex-col gap-5">
-        <div>
-            <label for="email">Email</label>
-            <input class="input" placeholder="you@company.com"
-                   type="email" name="email" id="email"
-                   required autocomplete="email">
-        </div>
-        <div>
-            <label for="name">Name</label>
-            <input class="input" placeholder="Jane Smith" name="name" type="text" autocomplete="name"
-                   id="name" required>
-        </div>
-        <div>
-            <label for="phone">Phone</label>
-            <input class="input" type="tel" name="phone" id="phone" placeholder="(425) 555-0100"
-                   required autocomplete="tel">
-        </div>
-        <div>
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Hi Blair, I'd like to talk about..."
-                      class="input" name="message" rows="4"></textarea>
-        </div>
+<div class="card p-8 max-w-[480px]">
+  <form action="https://forms.rizzness.com/f/nceHpcg0" method="POST">
+    <fieldset class="flex flex-col gap-6">
+      <div>
+        <label class="form-label" for="email">Email</label>
+        <input class="input" placeholder="you@company.com"
+               type="email" name="email" id="email"
+               required autocomplete="email">
+      </div>
+      <div>
+        <label class="form-label" for="name">Name</label>
+        <input class="input" placeholder="Jane Smith" name="name" type="text" autocomplete="name"
+               id="name" required>
+      </div>
+      <div>
+        <label class="form-label" for="phone">Phone</label>
+        <input class="input" type="tel" name="phone" id="phone" placeholder="(425) 555-0100"
+               required autocomplete="tel">
+      </div>
+      <div>
+        <label class="form-label" for="message">Message</label>
+        <textarea id="message" placeholder="Hi Blair, I'd like to talk about..."
+                  class="input" name="message" rows="5"></textarea>
+      </div>
     </fieldset>
     <div class="mt-6">
-        <button class="btn-primary w-full" type="submit">Send Message</button>
+      <button class="btn-primary" type="submit">Send Message</button>
     </div>
 
     <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
-</form>
+  </form>
+</div>

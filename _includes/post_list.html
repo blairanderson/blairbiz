@@ -4,21 +4,17 @@
   {% for post in posts %}
   <li class="pb-8 border-b" style="border-color: var(--color-border);">
     <article>
+      {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
+      <p style="font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-faint);">
+        {% if post.updated %}Updated {{ post.updated | date: date_format }}{% else %}{{ post.date | date: date_format }}{% endif %}
+      </p>
+
       <a href="{{ post.url | absolute_url }}" class="group no-underline">
-        <h3 style="font-family: var(--font-body); font-weight: 600; font-size: 1.25rem; color: var(--color-text); transition: color 0.15s ease-out;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text)'">{{ post.title | strip_html }}</h3>
+        <h3 class="mt-1 text-xl font-normal post-title">{{ post.title | strip_html }}</h3>
         {% if post.subtitle %}
         <p class="mt-1" style="color: var(--color-text-secondary);">{{ post.subtitle | strip_html }}</p>
         {% endif %}
       </a>
-
-      <p class="mt-1 text-sm" style="color: var(--color-text-muted);">
-        {% assign date_format = site.date_format | default: "%B %-d, %Y" %}
-        {% if post.updated %}
-        Updated on {{ post.updated | date: date_format }}
-        {% else %}
-        Posted on {{ post.date | date: date_format }}
-        {% endif %}
-      </p>
 
       {% unless site.feed_show_excerpt == false %}
       <div class="mt-2 text-sm leading-relaxed" style="color: var(--color-text-secondary);">
@@ -26,7 +22,7 @@
         {{ post.excerpt | strip_html | truncatewords: excerpt_length }}
         {% assign excerpt_word_count = post.excerpt | number_of_words %}
         {% if post.content != post.excerpt or excerpt_word_count > excerpt_length %}
-          <a href="{{ post.url | absolute_url }}" class="underline underline-offset-2 transition-colors" style="color: var(--color-accent);" onmouseover="this.style.color='var(--color-accent-hover)'" onmouseout="this.style.color='var(--color-accent)'">Read more</a>
+          <a href="{{ post.url | absolute_url }}" class="link-accent underline underline-offset-2">Read more</a>
         {% endif %}
       </div>
       {% endunless %}
@@ -46,12 +42,12 @@
 {% if paginator.total_pages > 1 %}
 <nav class="mt-8 flex justify-between">
   {% if paginator.previous_page %}
-  <a href="{{ paginator.previous_page_path | absolute_url }}" class="text-sm transition-colors" style="color: var(--color-accent);" onmouseover="this.style.color='var(--color-accent-hover)'" onmouseout="this.style.color='var(--color-accent)'">&larr; Newer Posts</a>
+  <a href="{{ paginator.previous_page_path | absolute_url }}" class="link-accent text-sm">&larr; Newer Posts</a>
   {% else %}
   <span></span>
   {% endif %}
   {% if paginator.next_page %}
-  <a href="{{ paginator.next_page_path | absolute_url }}" class="text-sm transition-colors" style="color: var(--color-accent);" onmouseover="this.style.color='var(--color-accent-hover)'" onmouseout="this.style.color='var(--color-accent)'">Older Posts &rarr;</a>
+  <a href="{{ paginator.next_page_path | absolute_url }}" class="link-accent text-sm">Older Posts &rarr;</a>
   {% endif %}
 </nav>
 {% endif %}

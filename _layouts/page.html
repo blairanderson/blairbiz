@@ -5,10 +5,10 @@ layout: base
 <div class="max-w-[720px] mx-auto px-6 py-12">
   {% if page.title %}
   <header class="mb-8">
-    <h1 style="font-family: var(--font-display); font-size: 2.5rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--color-text);">{{ page.title | strip_html }}</h1>
     {% if page.subtitle %}
-    <p class="mt-2 text-lg" style="color: var(--color-text-secondary);">{{ page.subtitle | strip_html }}</p>
+    <p class="section-label">{{ page.subtitle | strip_html }}</p>
     {% endif %}
+    <h1 class="heading-display{% if page.subtitle %} mt-2{% endif %}">{{ page.title | strip_html }}</h1>
   </header>
   {% endif %}
 

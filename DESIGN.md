@@ -20,12 +20,14 @@
 - **Code:** JetBrains Mono
 - **Loading:** Google Fonts CDN: `fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500`
 - **Scale:**
-  - Page title: 2.5rem/40px (Instrument Serif)
-  - Section heading: 1.75rem/28px (Instrument Serif)
+  - Hero: clamp(2.5rem, 5vw, 4rem) / Instrument Serif, -0.03em tracking — homepage only
+  - Page title: 2.5rem/40px (Instrument Serif, -0.02em tracking)
+  - Section heading: 1.75rem/28px (Instrument Serif, -0.01em tracking)
   - Subsection: 1.125rem/18px (Instrument Sans, semibold)
   - Body: 1rem/16px
   - Small/metadata: 0.875rem/14px
   - Label/mono: 0.75rem/12px (JetBrains Mono, uppercase, 0.05em tracking)
+  - Post titles: 1.25rem/20px (Instrument Serif, normal weight) — editorial authority in blog feed
 
 ## Color
 - **Approach:** Restrained — one accent + neutrals, color is rare and meaningful
@@ -41,6 +43,8 @@
 - **Accent:** #D97706 (warm amber, CTAs and links)
 - **Accent hover:** #B45309
 - **Accent light:** #FEF3C7
+- **Code block background:** #0F172A (slate-900)
+- **Code block text:** #E2E8F0 (slate-200)
 - **Semantic:** success #059669, warning #D97706, error #DC2626, info #2563EB
 - **Dark mode:** Invert surfaces (#111827 bg, #1F2937 surface, #374151 muted). Lighten accent to #F59E0B. Reduce text contrast slightly (#F9FAFB primary, #D1D5DB secondary).
 
@@ -52,14 +56,78 @@
 ## Layout
 - **Approach:** Grid-disciplined
 - **Grid:** Single column, centered
-- **Max content width:** 720px (prose), 960px (wide sections like nav/footer)
+- **Max content width:** 720px (prose), 960px (wide sections: nav, footer, homepage hero)
 - **Border radius:** sm:4px, md:6px, lg:8px, full:9999px
 
 ## Motion
 - **Approach:** Minimal-functional
 - **Easing:** enter(ease-out) exit(ease-in) move(ease-in-out)
 - **Duration:** micro(50-100ms) short(150ms) medium(200ms). No long animations.
-- **Rule:** Only hover state transitions on links and buttons. No entrance animations, no scroll effects, no loading spinners beyond browser default.
+- **Rule:** Only hover state transitions on interactive elements. No entrance animations, no scroll effects, no loading spinners beyond browser default.
+- **Hover patterns:**
+  - Links: color transition (150ms ease-out)
+  - Buttons: background or border-color transition (150ms ease-out)
+  - Cards: border-color shifts to `--color-border-strong` + subtle shadow `0 1px 4px rgba(0,0,0,0.04)` (150ms ease-out)
+  - Nav links: color + amber bottom-border appear together (150ms ease-out)
+  - Post titles: group-hover color transition to accent (150ms ease-out)
+
+## Components
+
+CSS component classes in `assets/css/main.css`. Use these instead of inline styles.
+
+### Headings
+| Class | Size | Font | Use |
+|-------|------|------|-----|
+| `.heading-hero` | clamp(2.5rem, 5vw, 4rem) | Instrument Serif | Homepage hero only |
+| `.heading-display` | 2.5rem | Instrument Serif | Page titles |
+| `.heading-section` | 1.75rem | Instrument Serif | Section headings |
+
+### Links
+| Class | Color | Hover | Use |
+|-------|-------|-------|-----|
+| `.link-accent` | amber | amber-hover | CTAs, "Read more", pagination |
+| `.link-muted` | faint | secondary | Footer icons, low-priority links |
+| `.link-subtle` | secondary | primary text | Nav-adjacent, contextual links |
+
+### Navigation
+- `.nav-link` — secondary text, amber bottom-border on hover
+- `.nav-link-active` — primary text, amber bottom-border always visible
+
+### Buttons
+| Class | Style | Hover | Use |
+|-------|-------|-------|-----|
+| `.btn-primary` | Dark bg, white text | Amber bg | Primary CTA ("Let's Talk") |
+| `.btn-secondary` | Transparent, border | Darker border | Secondary actions |
+| `.btn-ghost` | Transparent, amber text | Amber-hover text | Tertiary ("See Our Work →") |
+
+### Cards & Containers
+- `.card` — surface bg, light border, 24px padding, 8px radius. Hover: stronger border + subtle shadow
+- `.value-prop` — border-top separator + 1rem padding-top. Used for value proposition grids
+- `.result-highlight` — 2px amber left-border + 1rem left-padding. Used for case study results
+
+### Labels & Tags
+- `.section-label` — JetBrains Mono, 0.75rem, amber, uppercase, 0.05em tracking. The mono breadcrumb above headings
+- `.tech-tag` — JetBrains Mono, 0.75rem, muted bg pill. For skill tags and technology mentions
+- `.value-prop-number` — JetBrains Mono, 0.75rem, faint text. For numbered sequences ("01", "02", "03")
+- `.form-label` — JetBrains Mono, 0.75rem, muted, uppercase. Elevates form labels to engineering style
+- `.price-callout` — JetBrains Mono, amber-light bg, amber border. For pricing emphasis
+
+### Forms
+- `.input` — full width, 10px/12px padding, border, 6px radius. Focus: amber border
+- `.form-label` — see Labels above
+
+### Content
+- `.divider` — clean `<hr>`, 1px border-top, 3rem vertical margin
+- `.post-title` — Instrument Serif, group-hover to amber. Blog feed editorial treatment
+
+### Prose
+Markdown content rendered inside `.prose` containers gets automatic styling:
+- H2: Instrument Serif, 1.75rem, normal weight
+- H3: Instrument Sans, 1.125rem, semibold
+- Paragraphs: secondary text color, relaxed leading
+- Links: amber with underline, hover to amber-hover
+- Code blocks: slate-900 bg, slate-200 text, JetBrains Mono
+- Tables: full width, bordered, left-aligned
 
 ## Design Principles
 1. **The content is the design.** No decorative elements, illustrations, or stock photos. Typography and whitespace do the work.
@@ -67,6 +135,8 @@
 3. **Amber, not blue.** Every consultancy defaults to blue/teal. Amber is warm, confident, and rare in this space. Use it sparingly for CTAs and links only.
 4. **No fake agency aesthetics.** No client logo bars, team grids, or stock photography. Solo operator authenticity beats corporate theater.
 5. **Mono accents for engineering cred.** JetBrains Mono for code blocks, tech tags, section labels, and data. Reinforces "this person ships code."
+6. **Mono section labels create information hierarchy.** The `.section-label` pattern (amber mono text above a serif heading) creates a two-level hierarchy that gives context before the reader reaches the main heading. Used on homepage, services, case studies, page layouts, and blog posts.
+7. **Structured cards over flat markdown.** Service descriptions, case studies, and value propositions use `.card` containers with consistent internal hierarchy instead of plain markdown lists. Cards create visual rhythm and scannable structure for decision-makers who won't read every word.
 
 ## Decisions Log
 | Date | Decision | Rationale |
@@ -75,3 +145,7 @@
 | 2026-03-29 | Instrument Serif for display | Deliberate departure from all-sans-serif category norm to signal taste and experience |
 | 2026-03-29 | Amber #D97706 accent | Warm, confident alternative to ubiquitous blue/teal in tech consulting space |
 | 2026-03-29 | No client logos or team photos | Authenticity for solo operator positioning, let case studies carry credibility |
+| 2026-03-29 | Full site refresh + component library | 14 CSS component classes added, all inline styles and JS hover handlers eliminated, 33 legacy Beautiful Jekyll files removed |
+| 2026-03-29 | Post titles in Instrument Serif | Blog feed gets editorial authority — serif titles create a different visual register than the sans body text |
+| 2026-03-29 | Mono section labels pattern | `.section-label` above headings creates two-level hierarchy. Used consistently across homepage, services, case studies, and page layouts |
+| 2026-03-29 | Hero typography at 4rem | Homepage headline scaled to clamp(2.5rem, 5vw, 4rem) with -0.03em tracking for more commanding presence |

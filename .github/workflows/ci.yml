@@ -12,10 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2"
           bundler-cache: true
+
+      - name: Build Tailwind CSS
+        run: npm run build:css
 
       - name: Build Jekyll
         run: bundle exec jekyll build --future

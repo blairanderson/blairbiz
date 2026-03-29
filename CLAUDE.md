@@ -6,27 +6,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 BLAIR.BIZ is the website for Blair Anderson's custom software agency, a full-service software, automation, and AI consultancy based in Kirkland, WA. The consulting fee is $15K/week for onsite engagements where Blair directly architects solutions and ships code alongside your team.
 
-This site serves as the public face of the business: establishing authority, attracting clients, and showcasing expertise in custom software, automation, and AI. Built with Jekyll using the Beautiful Jekyll theme, deployed to Cloudflare Pages via GitHub Actions.
+This site serves as the public face of the business: establishing authority, attracting clients, and showcasing expertise in custom software, automation, and AI. Built with Jekyll and Tailwind CSS v4, deployed to Cloudflare Pages via GitHub Actions.
 
 ## Development Commands
 
 ```bash
 # Install dependencies
-bundle install
+bundle install && npm install
 
-# Serve locally with live reload
+# Dev mode (Tailwind watch + Jekyll serve, parallel)
+npm run dev
+
+# Build for production
+npm run build
+
+# Just rebuild CSS
+npm run build:css
+
+# Just serve Jekyll
 bundle exec jekyll serve
-
-# Build the site
-bundle exec jekyll build
-
-# Build with future-dated posts visible
-bundle exec jekyll build --future
 ```
 
 ## Architecture
 
-- **Theme**: Beautiful Jekyll (forked, not gem-based) — layouts, includes, and assets are all local
+- **CSS**: Tailwind CSS v4 with `@tailwindcss/typography` plugin. Input: `assets/css/main.css`, output: `assets/css/output.css` (gitignored)
 - **Config**: `_config.yml` controls site-wide settings (navbar, social links, colors, analytics)
 - **Layouts**: `_layouts/` — `base.html` is the root; `home.html` for the homepage; `page.html` and `post.html` extend `base.html`
 - **Content**: Blog posts in `_posts/` (format: `YYYY-MM-DD-title.md`), standalone pages as root-level `.md` files
@@ -53,3 +56,9 @@ bundle exec jekyll build --future
 - The `_site/` directory is the build output — do not edit files there directly
 - Contact form uses RizzForms (not Netlify). API key in `.env.local`.
 - Service section anchors use explicit kramdown IDs: `{#custom-software}`, `{#ai-automation}`, `{#consulting}`
+
+## Design System
+Always read DESIGN.md before making any visual or UI decisions.
+All font choices, colors, spacing, and aesthetic direction are defined there.
+Do not deviate without explicit user approval.
+In QA mode, flag any code that doesn't match DESIGN.md.

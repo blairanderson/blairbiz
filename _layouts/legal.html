@@ -2,14 +2,14 @@
 layout: base
 ---
 
-<div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+<div class="max-w-[720px] mx-auto px-6 py-12">
   {% if page.title %}
   <header class="mb-8">
-    <h1 class="text-3xl font-bold tracking-tight">{{ page.title | strip_html }}</h1>
+    <h1 style="font-family: var(--font-display); font-size: 2.5rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--color-text);">{{ page.title | strip_html }}</h1>
   </header>
   {% endif %}
 
-  <div class="prose max-w-none text-sm text-gray-700">
+  <div class="prose max-w-none text-sm" style="color: var(--color-text-secondary);">
     {{ content }}
   </div>
 </div>

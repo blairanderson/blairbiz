@@ -4,34 +4,32 @@ subtitle: Tell us about your project
 layout: page
 ---
 
-<form action="https://forms.rizzness.com/f/nceHpcg0" method="POST" class="max-w-lg mx-auto">
-    <fieldset class="space-y-4">
+<form action="https://forms.rizzness.com/f/nceHpcg0" method="POST" class="max-w-[480px]">
+    <fieldset class="flex flex-col gap-5">
         <div>
-            <input class="w-full px-3 py-2 border border-gray-300 rounded text-center bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-                   placeholder="Your Email"
+            <label for="email">Email</label>
+            <input class="input" placeholder="you@company.com"
                    type="email" name="email" id="email"
                    required autocomplete="email">
         </div>
         <div>
-            <input class="w-full px-3 py-2 border border-gray-300 rounded text-center bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-                   placeholder="Your Name" name="name" type="text" autocomplete="name"
+            <label for="name">Name</label>
+            <input class="input" placeholder="Jane Smith" name="name" type="text" autocomplete="name"
                    id="name" required>
         </div>
         <div>
-            <input class="w-full px-3 py-2 border border-gray-300 rounded text-center bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-                   type="tel" name="phone" id="phone" placeholder="Your Phone Number"
+            <label for="phone">Phone</label>
+            <input class="input" type="tel" name="phone" id="phone" placeholder="(425) 555-0100"
                    required autocomplete="tel">
         </div>
         <div>
-            <label class="block text-sm text-gray-600 mb-1" for="message">Your Message:</label>
+            <label for="message">Message</label>
             <textarea id="message" placeholder="Hi Blair, I'd like to talk about..."
-                      class="w-full px-3 py-2 border border-gray-300 rounded bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-                      name="message" rows="4"></textarea>
+                      class="input" name="message" rows="4"></textarea>
         </div>
     </fieldset>
     <div class="mt-6">
-        <input class="w-full px-6 py-3 bg-gray-900 text-white font-medium rounded hover:bg-gray-700 transition-colors cursor-pointer"
-                type="submit" value="Send Message">
+        <button class="btn-primary w-full" type="submit">Send Message</button>
     </div>
 
     <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">

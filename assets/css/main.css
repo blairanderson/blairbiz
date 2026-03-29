@@ -3,57 +3,230 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Prose content styling for Jekyll markdown */
+/* ── Design System: BLAIR.BIZ ── */
+/* See DESIGN.md for rationale and full token reference */
+
+@theme {
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-bg: #FFFFFF;
+  --color-bg-surface: #F9FAFB;
+  --color-bg-muted: #F3F4F6;
+  --color-border: #E5E7EB;
+  --color-border-strong: #D1D5DB;
+  --color-text: #111827;
+  --color-text-secondary: #4B5563;
+  --color-text-muted: #6B7280;
+  --color-text-faint: #9CA3AF;
+  --color-accent: #D97706;
+  --color-accent-hover: #B45309;
+  --color-accent-light: #FEF3C7;
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  --color-info: #2563EB;
+}
+
 @layer base {
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background: var(--color-bg);
+  }
+
+  /* Prose content styling for Jekyll markdown */
   .prose h2 {
-    @apply mt-10 mb-4 text-2xl font-bold;
+    font-family: var(--font-display);
+    @apply mt-10 mb-4 text-[1.75rem] font-normal leading-tight tracking-tight;
   }
   .prose h3 {
-    @apply mt-8 mb-3 text-xl font-semibold;
+    font-family: var(--font-body);
+    @apply mt-8 mb-3 text-lg font-semibold;
   }
   .prose p {
+    color: var(--color-text-secondary);
     @apply mb-4 leading-relaxed;
   }
   .prose ul {
+    color: var(--color-text-secondary);
     @apply mb-4 ml-6 list-disc;
   }
   .prose ol {
+    color: var(--color-text-secondary);
     @apply mb-4 ml-6 list-decimal;
   }
   .prose li {
     @apply mb-1;
   }
   .prose a {
-    @apply text-blue-600 underline hover:text-blue-800;
+    color: var(--color-accent);
+    @apply underline underline-offset-2;
+  }
+  .prose a:hover {
+    color: var(--color-accent-hover);
   }
   .prose hr {
-    @apply my-8 border-gray-200;
+    border-color: var(--color-border);
+    @apply my-8;
   }
   .prose strong {
+    color: var(--color-text);
     @apply font-semibold;
   }
   .prose blockquote {
-    @apply border-l-4 border-gray-300 pl-4 italic text-gray-600;
+    border-color: var(--color-border-strong);
+    color: var(--color-text-muted);
+    @apply border-l-4 pl-4 italic;
   }
   .prose pre {
-    @apply my-4 overflow-x-auto rounded bg-gray-900 p-4 text-sm text-gray-100;
+    @apply my-4 overflow-x-auto rounded-lg p-4 text-sm leading-relaxed;
+    background: #0F172A;
+    color: #E2E8F0;
+    font-family: var(--font-mono);
   }
   .prose code {
-    @apply rounded bg-gray-100 px-1.5 py-0.5 text-sm;
+    font-family: var(--font-mono);
+    background: var(--color-bg-muted);
+    @apply rounded px-1.5 py-0.5 text-sm;
   }
   .prose pre code {
     @apply bg-transparent p-0;
   }
   .prose img {
-    @apply my-4 rounded;
+    @apply my-4 rounded-lg;
   }
   .prose table {
     @apply my-4 w-full border-collapse;
   }
   .prose th {
-    @apply border-b-2 border-gray-300 px-4 py-2 text-left font-semibold;
+    font-family: var(--font-body);
+    border-color: var(--color-border-strong);
+    @apply border-b-2 px-4 py-2 text-left font-semibold text-sm;
   }
   .prose td {
-    @apply border-b border-gray-200 px-4 py-2;
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+    @apply border-b px-4 py-2 text-sm;
   }
+}
+
+/* ── Component Classes ── */
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--color-text);
+    color: var(--color-bg);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s ease-out;
+  }
+  .btn-primary:hover {
+    background: var(--color-accent-hover);
+    color: #fff;
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid var(--color-border-strong);
+    cursor: pointer;
+    transition: all 0.15s ease-out;
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-text);
+  }
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--color-accent);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.15s ease-out;
+  }
+  .btn-ghost:hover {
+    color: var(--color-accent-hover);
+  }
+
+  /* Section label (mono, uppercase, amber) */
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  /* Form inputs */
+  .input {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.15s ease-out;
+  }
+  .input:focus {
+    border-color: var(--color-accent);
+  }
+  .input::placeholder {
+    color: var(--color-text-faint);
+  }
+
+  /* Tech tags (monospace pills) */
+  .tech-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    background: var(--color-bg-muted);
+    color: var(--color-text-muted);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* Alerts */
+  .alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    border-left: 3px solid;
+  }
+  .alert-success { background: #F0FDF4; border-color: var(--color-success); color: #166534; }
+  .alert-warning { background: #FFFBEB; border-color: var(--color-warning); color: #92400E; }
+  .alert-error { background: #FEF2F2; border-color: var(--color-error); color: #991B1B; }
+  .alert-info { background: #EFF6FF; border-color: var(--color-info); color: #1E40AF; }
 }

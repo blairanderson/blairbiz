@@ -17,3 +17,4 @@ beautiful-jekyll-theme-*.gem
 .env.local
 node_modules/
 assets/css/output.css
+.gstack/

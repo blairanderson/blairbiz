@@ -18,3 +18,4 @@ beautiful-jekyll-theme-*.gem
 node_modules/
 assets/css/output.css
 .gstack/
+.tasks/

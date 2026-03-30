@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Services
-subtitle: Full-Service Custom Software & Automation
+subtitle: We automate the manual work that runs your service business — invoicing, scheduling, follow-ups, and the spreadsheets that hold it all together.
 redirect_from:
   - /amazon-selling-starter-kit/
   - /wholesale-success-blueprint/
@@ -14,49 +14,48 @@ redirect_from:
 ---
 
 <div class="card mb-8">
-  <p class="section-label">01 — Custom Software</p>
-  <h2 class="heading-section mt-2" id="custom-software">Custom Software</h2>
-  <p class="mt-3" style="color: var(--color-text-secondary);">We build production web applications from scratch and extend existing systems. Our stack centers on Ruby on Rails and React, but we choose the right tools for your problem, not the other way around.</p>
-  <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 mt-4">
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">Full-stack web application development</p>
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">API design and integration</p>
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">Database architecture and optimization</p>
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">Legacy system modernization</p>
-    <p class="text-sm border-l-2 pl-3 sm:col-span-2" style="color: var(--color-text-secondary); border-color: var(--color-border);">Third-party platform integrations (payment processors, ERPs, CRMs)</p>
+  <p class="section-label">01 — Systems</p>
+  <h2 class="heading-section mt-2" id="custom-software">Stop losing invoices. We connect your systems so nothing falls through the cracks.</h2>
+  <p class="mt-3" style="color: var(--color-text-secondary);">Your scheduling tool doesn't talk to your invoicing software. Your CRM doesn't know about completed jobs. Data gets re-typed, things get missed, and your office manager spends half their week making sure nothing slipped through. We fix that by connecting the systems you already use.</p>
+
+  <div class="mt-6">
+    <p class="section-label" style="color: var(--color-text-muted);">Before</p>
+    <p class="text-sm mt-1" style="color: var(--color-text-muted);">Your office manager creates invoices in QuickBooks by hand, copying job details from a spreadsheet. Takes 3 hours every Friday. Some invoices go out late. Some don't go out at all.</p>
+  </div>
+  <div class="result-highlight mt-4">
+    <p class="section-label">After</p>
+    <p class="text-sm mt-1" style="color: var(--color-text-secondary);">Job completion triggers an invoice automatically. Your office manager reviews and clicks send. Friday afternoons are free.</p>
   </div>
 </div>
 
 <div class="card mb-8">
-  <p class="section-label">02 — AI & Automation</p>
-  <h2 class="heading-section mt-2" id="ai-automation">AI & Automation</h2>
-  <p class="mt-3" style="color: var(--color-text-secondary);">We turn manual processes into automated systems and integrate AI where it creates real, measurable value. Not AI for the sake of AI... AI that saves your team hours every week.</p>
-  <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 mt-4">
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">Workflow automation (invoices, data entry, reporting)</p>
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">LLM integration (Claude, GPT, custom models)</p>
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">Data pipeline design and implementation</p>
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">Custom internal tools replacing spreadsheets</p>
-    <p class="text-sm border-l-2 pl-3 sm:col-span-2" style="color: var(--color-text-secondary); border-color: var(--color-border);">Process analysis and automation roadmapping</p>
+  <p class="section-label">02 — Automation</p>
+  <h2 class="heading-section mt-2" id="ai-automation">Your office manager spends 20 hours a week on work a computer should do. We fix that in days, not months.</h2>
+  <p class="mt-3" style="color: var(--color-text-secondary);">Data entry. Scheduling confirmations. Follow-up emails. Payment reminders. All of it can run on autopilot. We build automations that handle the repetitive work so your team can focus on the work that actually needs a human.</p>
+
+  <div class="mt-6">
+    <p class="section-label" style="color: var(--color-text-muted);">Before</p>
+    <p class="text-sm mt-1" style="color: var(--color-text-muted);">Your crew finishes a job. Someone has to remember to text the customer, update the schedule, log the hours, and send the invoice. If they forget any step, you lose money.</p>
+  </div>
+  <div class="result-highlight mt-4">
+    <p class="section-label">After</p>
+    <p class="text-sm mt-1" style="color: var(--color-text-secondary);">Job marked complete. Customer gets a thank-you text, schedule updates, hours log, and invoice goes out. All automatic. Nobody has to remember anything.</p>
   </div>
 </div>
 
 <div class="card mb-8">
-  <p class="section-label">03 — Consulting & Strategy</p>
-  <h2 class="heading-section mt-2" id="consulting">Consulting & Strategy</h2>
-  <p class="mt-3" style="color: var(--color-text-secondary);">For teams that need hands-on technical leadership, Blair works directly with your engineering team on-site. This is not advisory from a distance. It's an experienced engineer-founder embedded in your organization, architecting solutions and shipping code.</p>
-  <div class="mt-4 mb-4">
-    <span class="price-callout">$15K/week — onsite in Kirkland, WA & greater Seattle</span>
-  </div>
-  <div class="grid sm:grid-cols-2 gap-x-8 gap-y-2 mt-4">
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">Technical audits and architecture review</p>
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">AI/automation readiness assessment</p>
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">Team augmentation for high-stakes projects</p>
-    <p class="text-sm border-l-2 pl-3" style="color: var(--color-text-secondary); border-color: var(--color-border);">System design and technical decision-making</p>
+  <p class="section-label">03 — Strategy</p>
+  <h2 class="heading-section mt-2" id="consulting">Not sure what to automate first? We'll sit with your team for a day and show you.</h2>
+  <p class="mt-3" style="color: var(--color-text-secondary);">Most business owners know something is broken but aren't sure where to start. We sit down with you and your team, map out where time is being wasted, and build a plan to fix the biggest bottleneck first. No jargon, no 50-page proposal. Just a clear plan you can act on.</p>
+
+  <div class="mt-4">
+    <p class="text-sm" style="color: var(--color-text-secondary);">Pricing depends on scope. Most engagements start with a free 30-minute call.</p>
   </div>
 </div>
 
 <div class="mt-12 text-center">
-  <p class="text-lg" style="color: var(--color-text-secondary);">Ready to talk?</p>
+  <p class="text-lg" style="color: var(--color-text-secondary);">Not sure where to start? That's exactly what the first call is for.</p>
   <div class="mt-4">
-    <a href="/contact" class="btn-primary">Get in Touch</a>
+    <a href="/contact" class="btn-primary">Let's Figure It Out</a>
   </div>
 </div>

@@ -21,9 +21,9 @@ author: Blair Anderson
 ###############################################
 
 navbar-links:
-  Services: "services"
+  How We Help: "services"
   About: "about"
-  Case Studies: "case-studies"
+  Results: "case-studies"
   Contact: "contact"
 #  Resources:
 #    - Beautiful Jekyll: "https://beautifuljekyll.com"
@@ -120,7 +120,7 @@ edit_page_button: false
 navbar-var-length: false
 
 # The keywords to associate with your website, for SEO purposes
-keywords: "Custom Software, AI, Automation, Software Agency, Web Development, Rails, React, Consulting, Kirkland WA"
+keywords: "Invoice Automation, Service Business Automation, Landscape Contractor Software, Operations Automation, Custom Software, AI, Consulting, Kirkland WA"
 
 ######################################
 # --- Colours / background image --- #

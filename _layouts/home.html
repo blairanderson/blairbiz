@@ -6,6 +6,8 @@ layout: base
   {{ content }}
 </div>
 
+{% unless page.show_posts == false %}
 <div class="max-w-[720px] mx-auto px-6 pb-12">
   {% include post_list.html %}
 </div>
+{% endunless %}

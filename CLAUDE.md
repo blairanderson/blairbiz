@@ -52,7 +52,7 @@ bundle exec jekyll serve
 - Posts use `layout: post` by default; other pages use `layout: page` (configured in `_config.yml` defaults)
 - Permalink structure: `/:title/`
 - Plugins: `jekyll-paginate`, `jekyll-sitemap`, `jekyll-redirect-from`
-- Google Analytics via gtag (`G-EP3QCV5FNX`)
+- Google Analytics via gtag (`G-6N81Q05VW4`)
 - The `_site/` directory is the build output — do not edit files there directly
 - Contact form uses RizzForms (not Netlify). API key in `.env.local`.
 - Service section anchors use explicit kramdown IDs: `{#custom-software}`, `{#ai-automation}`, `{#consulting}`

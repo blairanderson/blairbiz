@@ -255,6 +255,10 @@ defaults:
     values:
       layout: "page"
 
+# Include files prefixed with _ that Jekyll would otherwise ignore
+include:
+  - _redirects
+
 # Exclude these files from production site
 exclude:
   - CLAUDE.md

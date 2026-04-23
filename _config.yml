@@ -271,6 +271,7 @@ exclude:
   - screenshot.png
   - docs/
   - .idea/
+  - clients/
 
 plugins:
   - jekyll-paginate

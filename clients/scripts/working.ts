@@ -21,29 +21,36 @@ for (const client of clientDirs) {
 
   for (const transcript of transcripts) {
     const base = transcript.replace(".transcript.md", "");
-    const transcriptFile = join(client.path, `${base}.transcript.md`);
+    const cleanedFile = join(client.path, `${base}.cleaned.md`);
     const chatgptFile = join(client.path, `${base}.chatgpt.md`);
     const summaryFile = join(client.path, `${base}.summary.md`);
 
+    if (!existsSync(cleanedFile)) {
+      console.error(`STOP: ${client.name}/${base}.transcript.md has not been cleaned yet.`);
+      console.error(`\nNext step: clean the transcript and save the result as:`);
+      console.error(`  ${cleanedFile}`);
+      process.exit(1);
+    }
+
     if (!existsSync(chatgptFile)) {
-      console.error(`STOP: ${client.name}/${base}.transcript.md has no ChatGPT summary yet.`);
-      console.error(`\nNext step: paste the transcript into ChatGPT and save the output as:`);
+      console.error(`STOP: ${client.name}/${base}.cleaned.md has no ChatGPT analysis yet.`);
+      console.error(`\nNext step: paste the cleaned transcript into ChatGPT and save the output as:`);
       console.error(`  ${chatgptFile}`);
       process.exit(1);
     }
 
     if (!existsSync(summaryFile)) {
-      const transcriptContent = readFileSync(transcriptFile, "utf-8");
+      const cleanedContent = readFileSync(cleanedFile, "utf-8");
       const chatgptContent = readFileSync(chatgptFile, "utf-8");
 
       console.error(`STOP: ${client.name}/${base} needs a meeting summary.\n`);
       console.error(`Output file: ${summaryFile}\n`);
       console.error(`=== PROMPT FOR CLAUDE ===\n`);
-      console.log(`Use the following template, transcript, and ChatGPT analysis to write a finalized meeting summary. Save it to ${summaryFile}.`);
+      console.log(`Use the following template, cleaned transcript, and ChatGPT analysis to write a finalized meeting summary. Save it to ${summaryFile}.`);
       console.log(`\n--- TEMPLATE ---\n`);
       console.log(template);
-      console.log(`\n--- TRANSCRIPT (${base}) ---\n`);
-      console.log(transcriptContent);
+      console.log(`\n--- CLEANED TRANSCRIPT (${base}) ---\n`);
+      console.log(cleanedContent);
       console.log(`\n--- CHATGPT ANALYSIS ---\n`);
       console.log(chatgptContent);
       process.exit(1);

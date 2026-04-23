@@ -55,6 +55,21 @@ for (const client of clientDirs) {
       console.log(chatgptContent);
       process.exit(1);
     }
+
+    const emailFile = join(client.path, `${base}.email.md`);
+    if (!existsSync(emailFile)) {
+      const emailPdf = join(client.path, `${base}.email.pdf`);
+      if (existsSync(emailPdf)) {
+        console.error(`STOP: ${client.name}/${base} has an email.pdf but no email.md yet.`);
+        console.error(`\nThis email was already sent. Ask the user to paste the email text and save it as:`);
+        console.error(`  ${emailFile}`);
+      } else {
+        console.error(`STOP: ${client.name}/${base} has a summary but no recap email yet.`);
+        console.error(`\nNext step: generate the post-meeting recap email and save it as:`);
+        console.error(`  ${emailFile}`);
+      }
+      process.exit(1);
+    }
   }
 }
 

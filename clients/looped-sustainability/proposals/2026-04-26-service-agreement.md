@@ -4,13 +4,9 @@
 **Client:** Looped Sustainability
 **Effective Date:** _______________
 
----
-
 ## 1. Services
 
 Consultant will provide fractional CTO and AI automation services as described in Exhibit A (Statement of Work) attached to this agreement. Consultant will apply professional judgment in determining the best technical approaches to achieve the outcomes described.
-
----
 
 ## 2. Term & Commitment
 
@@ -24,8 +20,6 @@ Consultant will provide fractional CTO and AI automation services as described i
 
 Hours are estimates based on anticipated scope. Consultant will communicate proactively if a particular project requires materially more time and will seek written approval before exceeding the stated commitment by more than 20% in any given month.
 
----
-
 ## 3. Fees & Payment
 
 **Build Phase (Months 1–3):** $6,500 per month
@@ -37,8 +31,6 @@ Invoices are issued on the 1st of each month and are due within 10 business days
 **Third-party costs** (API subscriptions, hosting, software licenses) required to deliver the services will be approved by Client in advance and billed at cost with no markup.
 
 **Out-of-scope work** requires a written amendment before work begins. Consultant's standard rate for out-of-scope work is $150/hour.
-
----
 
 ## 4. Phase Transition
 
@@ -53,8 +45,6 @@ Client may elect to:
 - **(b)** Extend the Build Phase rate ($6,500/month) if continued intensive engagement is desired
 - **(c)** Terminate the engagement per Section 11, with a full handoff package delivered within 14 days
 
----
-
 ## 5. Scope
 
 Services are limited to those described in Exhibit A. The following are explicitly **not included** in this agreement and require a separate Statement of Work and fee arrangement:
@@ -65,8 +55,6 @@ Services are limited to those described in Exhibit A. The following are explicit
 
 Consultant will flag scope expansion requests promptly rather than absorbing them silently.
 
----
-
 ## 6. Intellectual Property
 
 All work product created specifically for Client under this agreement — including automations, integrations, scripts, and documentation — shall be owned by Client upon receipt of full payment for the month in which the work was delivered.
@@ -76,8 +64,6 @@ Notwithstanding the above, Consultant retains full ownership of all pre-existing
 Client grants Consultant a limited, non-exclusive license to access and use Client's systems, data, and pre-existing intellectual property solely as necessary to perform the Services described in Exhibit A.
 
 For the avoidance of doubt: any custom load management platform or application built to replace C-Trade, if undertaken, will be governed by a separate agreement that explicitly addresses IP ownership for that project.
-
----
 
 ## 7. Confidentiality
 
@@ -93,13 +79,9 @@ Consultant may reference the engagement generally (e.g., "waste management / sus
 
 The parties agree that any breach of the restrictions contained in this section will cause irreparable harm to the non-breaching party entitling such party to injunctive relief in addition to all other legal remedies.
 
----
-
 ## 8. Non-Solicitation
 
 For twelve (12) months following the termination of this agreement, neither party shall directly solicit the other party's employees or contractors for employment or engagement without prior written consent.
-
----
 
 ## 9. Representations & Warranties
 
@@ -107,13 +89,9 @@ For twelve (12) months following the termination of this agreement, neither part
 
 **9.2 Service Warranty.** Consultant will perform services in a professional and workmanlike manner consistent with generally accepted industry standards. Except as expressly stated in this agreement, Consultant makes no warranties, express or implied, including implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
 
----
-
 ## 10. Indemnification
 
 Each party ("Indemnifying Party") shall indemnify, defend, and hold harmless the other party and its officers, directors, employees, and agents ("Indemnified Party") from and against any third-party claims, losses, liabilities, damages, costs, and expenses (including reasonable attorneys' fees) arising from or relating to: (a) any material breach of this agreement by the Indemnifying Party; or (b) the Indemnifying Party's gross negligence or willful misconduct. The provisions of this section survive termination of this agreement.
-
----
 
 ## 11. Termination
 
@@ -123,8 +101,6 @@ Each party ("Indemnifying Party") shall indemnify, defend, and hold harmless the
 
 Upon termination for any reason, Consultant will deliver a complete handoff package within 14 days, including all work product, documentation, credentials, and a written summary of in-progress work.
 
----
-
 ## 12. Independent Contractor
 
 Consultant is an independent contractor. Nothing in this agreement creates an employment, partnership, or joint venture relationship. Consultant is responsible for all taxes on fees received.
@@ -133,37 +109,25 @@ Consultant may engage subcontractors as needed and remains responsible for their
 
 Consultant may perform services for other clients during the term of this agreement, provided doing so does not create a conflict of interest. Consultant serving other clients in adjacent industries does not constitute a conflict of interest unless Consultant directly uses Client's Confidential Information in performing services for a direct competitor of Client.
 
----
-
 ## 13. Data Handling
 
 In performing services, Consultant may access Client data including email correspondence, financial records, and business communications ("Client Data"). Consultant agrees to: (a) access Client Data only as necessary to perform services under this agreement; (b) not use Client Data to train AI models or for any purpose outside the services; (c) implement reasonable security measures appropriate to the sensitivity of the data; (d) notify Client promptly (within 48 hours) upon discovery of any unauthorized access to or disclosure of Client Data; and (e) upon termination, delete or destroy Client Data in Consultant's possession within 30 days of Client's written request. Client Data remains the property of Client.
-
----
 
 ## 14. Limitation of Liability
 
 Neither party shall be liable for indirect, incidental, or consequential damages arising from this engagement. Consultant's total liability shall not exceed the fees paid in the three (3) months immediately preceding the claim. The foregoing limitations shall not apply to either party's gross negligence, willful misconduct, or fraud, or to obligations arising under Section 10 (Indemnification).
 
----
-
 ## 15. Force Majeure
 
 Neither party shall be in breach of this agreement for delays or non-performance caused by circumstances beyond their reasonable control, including illness, natural disasters, government actions, or third-party service outages, provided the affected party gives prompt written notice and resumes performance as soon as reasonably practicable.
-
----
 
 ## 16. Assignment
 
 Neither party may assign this agreement without the prior written consent of the other party, which shall not be unreasonably withheld. Notwithstanding the foregoing, Consultant may assign this agreement to an entity controlled by Blair Anderson without prior written consent. Any purported assignment in violation of this section shall be void.
 
----
-
 ## 17. Governing Law
 
 This agreement is governed by the laws of the State of Washington, without giving effect to conflicts of law principles. Any disputes will be resolved in King County, Washington.
-
----
 
 ## 18. Miscellaneous
 
@@ -177,8 +141,6 @@ This agreement is governed by the laws of the State of Washington, without givin
 
 **18.5 Time is of the Essence.** Time is of the essence in performance of all obligations under this agreement.
 
----
-
 ## Signatures
 
 **Consultant**
@@ -188,8 +150,6 @@ Name: Blair Anderson
 Title: Owner, Anderson Associates
 Date: _______________
 
----
-
 **Client**
 
 Signature: _______________________________
@@ -197,8 +157,6 @@ Name: _______________
 Title: _______________
 Organization: Looped Sustainability
 Date: _______________
-
----
 
 # Exhibit A — Statement of Work
 
@@ -229,8 +187,6 @@ Date: _______________
 - Integrate freight estimation from load boards and broker networks beyond Client's current relationships
 - Deliver user-facing interface or workflow for sales team use
 
----
-
 ## Retainer Phase Services (Month 4+)
 
 - Bi-weekly attendance at Client sales meetings (or weekly cadence by mutual agreement)
@@ -238,8 +194,6 @@ Date: _______________
 - Technology vendor evaluation and recommendations
 - Maintenance and iteration on systems built during Build Phase
 - Monthly written summary of work completed and upcoming priorities
-
----
 
 ## Explicitly Out of Scope (Requires Separate SOW)
 

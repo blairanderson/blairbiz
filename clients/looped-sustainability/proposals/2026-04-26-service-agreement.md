@@ -24,7 +24,7 @@ Hours are estimates based on anticipated scope. Consultant will communicate proa
 
 **Build Phase (Months 1–3):** $5,500 per month
 
-**Retainer Phase (Month 4+):** $4,500 per month
+**Retainer Phase (Month 4+):** $3,500 per month
 
 **Deposit:** Upon execution of this agreement, Client shall pay a deposit of $2,750 (equal to 50% of the first month's Build Phase fee). This deposit will be credited in full against the Month 1 invoice. The deposit is non-refundable if Client terminates this agreement during the Initial Term other than for Consultant's uncured material breach.
 
@@ -43,7 +43,7 @@ At the conclusion of the Build Phase (end of Month 3), Client will receive a wri
 - Any credentials, access, or repository transfers required
 
 Client may elect to:
-- **(a)** Continue into the Retainer Phase at $4,500/month (~10 hrs/week)
+- **(a)** Continue into the Retainer Phase at $3,500/month (~10 hrs/week)
 - **(b)** Extend the Build Phase rate ($5,500/month) if continued intensive engagement is desired
 - **(c)** Terminate the engagement per Section 11, with a full handoff package delivered within 14 days
 

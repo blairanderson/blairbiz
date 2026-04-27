@@ -22,11 +22,11 @@ Hours are estimates based on anticipated scope. Consultant will communicate proa
 
 **3. FEES & PAYMENT**
 
-**Build Phase (Months 1–3):** $6,500 per month
+**Build Phase (Months 1–3):** $5,500 per month
 
 **Retainer Phase (Month 4+):** $4,500 per month
 
-**Deposit:** Upon execution of this agreement, Client shall pay a deposit of $3,250 (equal to 50% of the first month's Build Phase fee). This deposit will be credited in full against the Month 1 invoice. The deposit is non-refundable if Client terminates this agreement during the Initial Term other than for Consultant's uncured material breach.
+**Deposit:** Upon execution of this agreement, Client shall pay a deposit of $2,750 (equal to 50% of the first month's Build Phase fee). This deposit will be credited in full against the Month 1 invoice. The deposit is non-refundable if Client terminates this agreement during the Initial Term other than for Consultant's uncured material breach.
 
 Invoices are issued on the 1st of each month and are due within 10 business days. Payments more than 15 days past due accrue interest at 1.5% per month. Consultant may pause work on overdue accounts after written notice.
 
@@ -44,7 +44,7 @@ At the conclusion of the Build Phase (end of Month 3), Client will receive a wri
 
 Client may elect to:
 - **(a)** Continue into the Retainer Phase at $4,500/month (~10 hrs/week)
-- **(b)** Extend the Build Phase rate ($6,500/month) if continued intensive engagement is desired
+- **(b)** Extend the Build Phase rate ($5,500/month) if continued intensive engagement is desired
 - **(c)** Terminate the engagement per Section 11, with a full handoff package delivered within 14 days
 
 **5. SCOPE**
@@ -172,9 +172,8 @@ Consultant will maintain a prioritized backlog of work items in collaboration wi
 
 **Initial Backlog Priorities:**
 - AP/AR invoice automation (monitor inbox, extract invoice data, route to QuickBooks, flag exceptions)
-- Sales call transcription and Trello integration (transcription tooling, structured Trello cards from call summaries)
+- AI-powered material research agent with Trello integration (match material type, volume, and location to ranked buyer list with freight estimates; surface results as structured comments on the relevant Trello opportunity card)
 - Workflow audit and automation roadmap (document major manual workflows, identify and prioritize automation opportunities)
-- AI-powered material matching research agent (match material type, volume, and location to ranked buyer list with freight estimates)
 
 **Retainer Phase Services (Month 4+)**
 

@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Looped Sustainability × Blair Anderson</title>
+
+        <!-- Reveal.js core -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"
+        />
+
+        <!-- Font Awesome for icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+
+        <!-- Custom styles -->
+        <link rel="stylesheet" href="looped-deck-styles.css" />
+
+        <!-- Chart.js for data visualization -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <!-- ── SLIDE 1: TITLE ── -->
+                <section
+                    id="title"
+                    class="section-divider"
+                    data-state="is-section-divider"
+                >
+                    <span class="mono-label">Proposal · April 28, 2026</span>
+                    <h1>
+                        <em style="color: #34d399">Looped Sustainability</em
+                        ><br />AI Automated back office.
+                    </h1>
+                    <p>Fractional CTO / Automation Partner</p>
+                    <p
+                        style="
+                            margin-top: 28px;
+                            font-size: 13pt;
+                            color: #4b5a70;
+                        "
+                    >
+                        Prepared by Blair Anderson &nbsp;·&nbsp; Anderson &amp;
+                        Associates LLC<br />
+                        For Cort Koenig &amp; Andrew Januik &nbsp;·&nbsp; Start:
+                        May 2026
+                    </p>
+                </section>
+
+                <!-- ── SLIDE 2: DIVIDER — WHAT WE HEARD ── -->
+                <section
+                    id="divider-1"
+                    class="section-divider"
+                    data-state="is-section-divider"
+                >
+                    <div
+                        style="
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 60px;
+                            width: 100%;
+                        "
+                    >
+                        <div>
+                            <span class="mono-label"
+                                >Two meetings. Three Targets.</span
+                            >
+                            <h1>Big Pain.<br />Big Opportunity.</h1>
+                            <p>
+                                Operations, research, and the back office — all
+                                showing the same strain.
+                            </p>
+                        </div>
+                        <div
+                            style="
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                gap: 16px;
+                            "
+                        >
+                            <span class="section-tag tag--amber"
+                                ><span class="section-tag-num">#1</span
+                                >Research</span
+                            >
+                            <span class="section-tag tag--blue"
+                                ><span class="section-tag-num">#2</span>Finance
+                                / Ops</span
+                            >
+                            <span class="section-tag tag--green"
+                                ><span class="section-tag-num">#3</span
+                                >Operations</span
+                            >
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ── SLIDE 3: PAIN POINTS ── -->
+                <section id="pain-points">
+                    <h2>Three gaps. All addressable.</h2>
+                    <div class="content">
+                        <div
+                            style="
+                                display: grid;
+                                grid-template-columns: repeat(3, 1fr);
+                                gap: 20px;
+                                flex: 1;
+                            "
+                        >
+                            <div class="pain-card">
+                                <span class="tag tag--blue">Finance / Ops</span>
+                                <h3>The AP inbox nobody checks</h3>
+                                <p>
+                                    Invoices arrive, sit in a shared email, and
+                                    require manual extraction, verification
+                                    against C-Trade, and manual posting to
+                                    QuickBooks.
+                                </p>
+                                <p class="pain-quote">
+                                    "That's why Andrew doesn't sleep
+                                    anymore."<br />"We're living in the Stone
+                                    Age."
+                                </p>
+                            </div>
+
+                            <div class="pain-card">
+                                <span class="tag tag--amber">Research</span>
+                                <h3>20 hours per unusual lead</h3>
+                                <p>
+                                    Every creative-solutions job requires
+                                    researching end uses, locating buyers,
+                                    building a call list. Leadership ends up
+                                    doing it because reps aren't researchers.
+                                </p>
+                                <p class="pain-quote">
+                                    "The pain point is the 20 hours that go into
+                                    finding that phone call."
+                                </p>
+                            </div>
+
+                            <div class="pain-card">
+                                <span class="tag tag--green">Operations</span>
+                                <h3>The back office didn't scale with you</h3>
+                                <p>
+                                    Two new CS reps hired the day before our
+                                    first meeting. The systems haven't kept up.
+                                    Scheduling, confirmations, data entry — all
+                                    done by humans on phones.
+                                </p>
+                                <p class="pain-quote">
+                                    "We've grown a little faster than we
+                                    expected and weren't fully ready for it."
+                                </p>
+                            </div>
+                        </div>
+                        <p
+                            style="
+                                font-size: 11.5pt;
+                                color: #4b5a70;
+                                margin-top: 16px;
+                            "
+                        >
+                            Constraint agreed in our meeting: all automation is
+                            invisible to clients — nothing changes on their
+                            side.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- ── SLIDE 4: DIVIDER — PHASE 1 ── -->
+                <section
+                    id="divider-2"
+                    class="section-divider"
+                    data-state="is-section-divider"
+                >
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; width:100%;">
+                        <div>
+                            <span class="mono-label">Build Phase · Months 1–3</span>
+                            <h1>Phase 1.<br />First 90 days.</h1>
+                            <p>Highest value first. Backlog is ours to adjust week by week.</p>
+                        </div>
+                        <div style="display:flex; flex-direction:column; justify-content:center; gap:16px;">
+                            <span class="section-tag tag--amber"><span class="section-tag-num">#1</span>Research</span>
+                            <span class="section-tag tag--blue"><span class="section-tag-num">#2</span>Finance / Ops</span>
+                            <span class="section-tag tag--green"><span class="section-tag-num">#3</span>Operations</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ── SLIDES 5.1–5.4: DELIVERABLES (vertical stack) ── -->
+                <section>
+                    <!-- 5.1 AP/AR Invoice Automation -->
+                    <section id="deliverable-1">
+                        <h2>01 — AP / AR Invoice Automation</h2>
+                        <div class="content">
+                            <div
+                                style="
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+                                    gap: 28px;
+                                "
+                            >
+                                <div>
+                                    <span class="tag tag--blue"
+                                        >Andrew's #1 Priority</span
+                                    >
+                                    <p class="deliverable-desc">
+                                        Monitors the AP email inbox. Extracts
+                                        invoice data from attachments (PDFs,
+                                        Excel). Validates amounts against
+                                        C-Trade records. Flags mismatches.
+                                        Prepares QuickBooks postings for review.
+                                    </p>
+                                    <p
+                                        class="deliverable-desc"
+                                        style="margin-top: 12px"
+                                    >
+                                        Andrew stops manually touching invoices.
+                                        Discrepancies surface automatically
+                                        rather than silently accumulating.
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="result-note">
+                                        <p>
+                                            <strong style="color: #f59e0b"
+                                                >Why first:</strong
+                                            >
+                                            Lowest risk — fully internal,
+                                            clients never see it. Highest daily
+                                            pain for Andrew. Immediate,
+                                            measurable relief.
+                                        </p>
+                                    </div>
+                                    <blockquote style="margin-top: 20px">
+                                        <p>
+                                            "That's why Andrew doesn't sleep
+                                            anymore."
+                                        </p>
+                                        <cite>Andrew Januik, COO</cite>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footnote">
+                            Deliverable 1 of 4 · Phase 1 Build
+                        </div>
+                    </section>
+
+                    <!-- 5.2 Material Research Agent -->
+                    <section id="deliverable-2">
+                        <h2>02 — Material Research Agent</h2>
+                        <div class="content">
+                            <div
+                                style="
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+                                    gap: 28px;
+                                "
+                            >
+                                <div>
+                                    <span class="tag tag--amber"
+                                        >Cort's Priority</span
+                                    >
+                                    <p class="deliverable-desc">
+                                        Plugs into the Trello pipeline. When a
+                                        new opportunity card is created, the
+                                        agent identifies likely non-obvious end
+                                        uses, surfaces nearby buyers and
+                                        processors with contacts, and comments a
+                                        prioritized "who to call" list — with
+                                        indicative pricing — directly on the
+                                        card.
+                                    </p>
+                                    <p
+                                        class="deliverable-desc"
+                                        style="margin-top: 12px"
+                                    >
+                                        Sales reps get a research head start
+                                        before they ever pick up the phone.
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="result-note">
+                                        <p>
+                                            <strong style="color: #f59e0b"
+                                                >Their framing, built
+                                                exactly:</strong
+                                            >
+                                            "Finds our best options, gives us a
+                                            pricing guide, and tees up exactly
+                                            who we need to call."
+                                        </p>
+                                    </div>
+                                    <blockquote style="margin-top: 20px">
+                                        <p>
+                                            "The pain point is the 20 hours that
+                                            go into finding that phone call."
+                                        </p>
+                                        <cite>Cort Koenig, CEO</cite>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footnote">
+                            Deliverable 2 of 4 · Phase 1 Build
+                        </div>
+                    </section>
+
+                    <!-- 5.3 Sales Call Transcription → Trello -->
+                    <section id="deliverable-3">
+                        <h2>03 — Sales Call Transcription → Trello</h2>
+                        <div class="content">
+                            <div
+                                style="
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+                                    gap: 28px;
+                                "
+                            >
+                                <div>
+                                    <span class="tag tag--green"
+                                        >Both Benefit</span
+                                    >
+                                    <p class="deliverable-desc">
+                                        Background audio capture —
+                                        Granola-style. No bot joining the call,
+                                        nothing intrusive for the prospect.
+                                        After each call, generates a structured
+                                        summary: material specs, open questions,
+                                        pricing signals, follow-up items.
+                                        Written directly to the relevant Trello
+                                        card.
+                                    </p>
+                                    <p
+                                        class="deliverable-desc"
+                                        style="margin-top: 12px"
+                                    >
+                                        Cards become as detailed as the ones
+                                        Cort writes himself.
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="result-note">
+                                        <p>
+                                            <strong style="color: #f59e0b"
+                                                >Coaching layer
+                                                available:</strong
+                                            >
+                                            Prompts like "Did you ask about
+                                            volume timing?" can reinforce the
+                                            sales process over time.
+                                        </p>
+                                    </div>
+                                    <div
+                                        style="
+                                            margin-top: 20px;
+                                            background: rgba(
+                                                255,
+                                                255,
+                                                255,
+                                                0.04
+                                            );
+                                            border: 1px solid
+                                                rgba(255, 255, 255, 0.08);
+                                            border-radius: 6px;
+                                            padding: 16px;
+                                        "
+                                    >
+                                        <p
+                                            style="
+                                                font-size: 12pt;
+                                                color: rgba(232, 237, 243, 0.6);
+                                            "
+                                        >
+                                            Note: you flagged that you disliked
+                                            intrusive AI meeting bots from a
+                                            prior tool. This approach runs in
+                                            the background — the prospect never
+                                            knows.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footnote">
+                            Deliverable 3 of 4 · Phase 1 Build
+                        </div>
+                    </section>
+
+                    <!-- 5.4 Workflow Audit & Roadmap -->
+                    <section id="deliverable-4">
+                        <h2>04 — Workflow Audit &amp; Automation Roadmap</h2>
+                        <div class="content">
+                            <div
+                                style="
+                                    display: grid;
+                                    grid-template-columns: 1fr 1fr;
+                                    gap: 28px;
+                                "
+                            >
+                                <div>
+                                    <span class="tag tag--green"
+                                        >Foundation</span
+                                    >
+                                    <p class="deliverable-desc">
+                                        Document the major manual workflows
+                                        end-to-end: freight quoting, account
+                                        management, order tracking, document
+                                        generation. Identify automation
+                                        candidates by impact and risk.
+                                    </p>
+                                    <p
+                                        class="deliverable-desc"
+                                        style="margin-top: 12px"
+                                    >
+                                        Produces the prioritized roadmap that
+                                        guides Retainer Phase work. We're never
+                                        guessing what to build next.
+                                    </p>
+                                </div>
+                                <div>
+                                    <div class="result-note">
+                                        <p>
+                                            <strong style="color: #f59e0b"
+                                                >Natural next layer:</strong
+                                            >
+                                            Freight quoting and account
+                                            management ops are the Phase 2
+                                            targets. The audit makes sure we
+                                            sequence them correctly.
+                                        </p>
+                                    </div>
+                                    <div style="margin-top: 20px">
+                                        <ul style="margin: 0">
+                                            <li>
+                                                <p style="font-size: 13pt">
+                                                    Freight quoting — always-on
+                                                    coverage beyond Macedonia
+                                                    work window
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p style="font-size: 13pt">
+                                                    Account management ops
+                                                    copilot — scheduling,
+                                                    confirmations, document
+                                                    generation
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p style="font-size: 13pt">
+                                                    Emergency quote blast —
+                                                    structured all-carrier
+                                                    outreach within the hour
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footnote">
+                            Deliverable 4 of 4 · Phase 1 Build → sets up
+                            Retainer Phase priorities
+                        </div>
+                    </section>
+                </section>
+
+                <!-- ── SLIDE 6: DIVIDER — THE MODEL ── -->
+                <section
+                    id="divider-3"
+                    class="section-divider"
+                    data-state="is-section-divider"
+                >
+                    <span class="mono-label"
+                        >Ongoing relationship, not project-by-project</span
+                    >
+                    <h1>The model.</h1>
+                    <p>
+                        Fractional CTO. What that means<br />in practice, week
+                        to week.
+                    </p>
+                </section>
+
+                <!-- ── SLIDE 7: HOW IT WORKS ── -->
+                <section id="model">
+                    <h2>How we work together</h2>
+                    <div class="content">
+                        <div class="model-item">
+                            <span class="model-cadence">Weekly</span>
+                            <div>
+                                <h3>Weekly Sync</h3>
+                                <p>
+                                    30–45 min. Review what shipped. Hear what's
+                                    burning. Adjust priorities. Keeps us aligned
+                                    without overhead.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="model-item">
+                            <span class="model-cadence">Monthly</span>
+                            <div>
+                                <h3>Written Summary</h3>
+                                <p>
+                                    End of each month: what was built, current
+                                    status on each project, what's next. Easy to
+                                    share with stakeholders.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="model-item">
+                            <span class="model-cadence">Ongoing</span>
+                            <div>
+                                <h3>Slack / Async Access</h3>
+                                <p>
+                                    Day-to-day questions, edge cases, something
+                                    breaks — fast loop without scheduling
+                                    overhead. Reliably responsive during
+                                    business hours.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="model-item">
+                            <span class="model-cadence">Retainer</span>
+                            <div>
+                                <h3>
+                                    Bi-Weekly Sales Meeting Attendance (Month
+                                    4+)
+                                </h3>
+                                <p>
+                                    Hearing deals in real time is how I build
+                                    tools that match your actual process — not a
+                                    guessed version of it.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="model-item">
+                            <span class="model-cadence">Always</span>
+                            <div>
+                                <h3>You Own Everything Built</h3>
+                                <p>
+                                    All automations, scripts, and documentation
+                                    belong to Looped on receipt of payment. Full
+                                    handoff package at any transition point. No
+                                    lock-in.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ── SLIDE 8: DIVIDER — INVESTMENT ── -->
+                <section
+                    id="divider-4"
+                    class="section-divider"
+                    data-state="is-section-divider"
+                >
+                    <span class="mono-label">Predictable monthly rate</span>
+                    <h1>Investment.</h1>
+                    <p>
+                        No surprise bills. Third-party costs passed<br />through
+                        at cost, with your approval.
+                    </p>
+                </section>
+
+                <!-- ── SLIDE 9: PRICING ── -->
+                <section id="investment">
+                    <h2>Pricing</h2>
+                    <div class="content">
+                        <div
+                            style="
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                gap: 16px;
+                                margin-bottom: 14px;
+                                flex: 1;
+                            "
+                        >
+                            <div class="price-card price-card--featured">
+                                <p class="price-label">
+                                    Build Phase — Months 1–3
+                                </p>
+                                <p class="price-amount" style="font-size: 36pt">
+                                    $6,500 <span>/ month</span>
+                                </p>
+                                <div class="price-meta">
+                                    <div class="price-meta-row">
+                                        <span>Commitment</span
+                                        ><strong>~20 hrs / week</strong>
+                                    </div>
+                                    <div class="price-meta-row">
+                                        <span>Term</span
+                                        ><strong>3 months</strong>
+                                    </div>
+                                    <div class="price-meta-row">
+                                        <span>Total</span
+                                        ><strong>$19,500</strong>
+                                    </div>
+                                </div>
+                                <ul class="price-includes">
+                                    <li><p>All 4 Phase 1 deliverables</p></li>
+                                    <li>
+                                        <p>
+                                            Weekly syncs + monthly written
+                                            summaries
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>Async access (Slack or email)</p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Full transition package at end of
+                                            Month 3
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="price-card">
+                                <p class="price-label">
+                                    Retainer Phase — Month 4+
+                                </p>
+                                <p class="price-amount" style="font-size: 36pt">
+                                    $4,500 <span>/ month</span>
+                                </p>
+                                <div class="price-meta">
+                                    <div class="price-meta-row">
+                                        <span>Commitment</span
+                                        ><strong>~10 hrs / week</strong>
+                                    </div>
+                                    <div class="price-meta-row">
+                                        <span>Term</span
+                                        ><strong>Month-to-month</strong>
+                                    </div>
+                                    <div class="price-meta-row">
+                                        <span>Cancel notice</span
+                                        ><strong>30 days</strong>
+                                    </div>
+                                </div>
+                                <ul class="price-includes">
+                                    <li>
+                                        <p>
+                                            Maintenance of all Phase 1 systems
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Continued backlog-driven build work
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Bi-weekly sales meeting attendance
+                                        </p>
+                                    </li>
+                                    <li><p>Monthly written summaries</p></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="deposit-box">
+                            <p>
+                                <strong style="color: #f59e0b"
+                                    >To start:</strong
+                                >
+                                $3,250 deposit (50% of Month 1) due on contract
+                                signature — credited in full against Month 1
+                                invoice. Non-refundable if Looped terminates
+                                during the Initial Term other than for my
+                                uncured material breach.
+                            </p>
+                        </div>
+
+                        <p
+                            style="
+                                font-size: 11pt;
+                                color: #3d4a5c;
+                                margin-top: 10px;
+                            "
+                        >
+                            Invoices on the 1st of each month, due in 10
+                            business days &nbsp;·&nbsp; All deliverables owned
+                            by Looped upon payment &nbsp;·&nbsp; Out-of-scope
+                            work at $150/hr with written amendment &nbsp;·&nbsp;
+                            Governed by Washington State law
+                        </p>
+                    </div>
+                </section>
+
+                <!-- ── SLIDE 10: NEXT STEPS ── -->
+                <section id="next-steps">
+                    <h2>Next steps</h2>
+                    <div class="content">
+                        <div
+                            style="
+                                display: grid;
+                                grid-template-columns: repeat(3, 1fr);
+                                gap: 20px;
+                                margin-bottom: 24px;
+                            "
+                        >
+                            <div class="step-card">
+                                <span class="step-num">Step 01</span>
+                                <h3>Review this proposal</h3>
+                                <p>
+                                    Flag anything that needs adjustment — scope,
+                                    timing, or pricing. Better to fix it now
+                                    than mid-engagement.
+                                </p>
+                            </div>
+
+                            <div class="step-card step-card--featured">
+                                <span class="step-num">Step 02</span>
+                                <h3>Sign the agreement</h3>
+                                <p>
+                                    Electronic signatures are valid. Once
+                                    signed, I'll send the $3,250 deposit invoice
+                                    and we'll set a kick-off for the week of May
+                                    5.
+                                </p>
+                            </div>
+
+                            <div class="step-card">
+                                <span class="step-num">Step 03</span>
+                                <h3>Coffee in Seattle</h3>
+                                <p>
+                                    Cort, you're in Seattle May 2–9. Proposal
+                                    first — coffee is the handshake close. May 3
+                                    or May 9.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            style="
+                                background: rgba(45, 125, 70, 0.1);
+                                border: 1px solid rgba(45, 125, 70, 0.35);
+                                border-radius: 8px;
+                                padding: 24px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                gap: 24px;
+                            "
+                        >
+                            <div>
+                                <p
+                                    style="
+                                        font-size: 17pt;
+                                        font-family:
+                                            &quot;Instrument Serif&quot;,
+                                            Georgia, serif;
+                                        font-style: italic;
+                                        margin: 0 0 6px 0;
+                                        color: #e8edf3;
+                                    "
+                                >
+                                    Ready to stop doing it manually?
+                                </p>
+                                <p
+                                    style="
+                                        font-size: 13pt;
+                                        color: rgba(232, 237, 243, 0.6);
+                                        margin: 0;
+                                    "
+                                >
+                                    The first automation in your inbox. The
+                                    research your reps need before they dial.
+                                </p>
+                            </div>
+                            <div style="text-align: right; flex-shrink: 0">
+                                <p
+                                    style="
+                                        font-family:
+                                            &quot;JetBrains Mono&quot;,
+                                            monospace;
+                                        font-size: 9pt;
+                                        text-transform: uppercase;
+                                        letter-spacing: 0.07em;
+                                        color: #4b5a70;
+                                        margin-bottom: 6px;
+                                    "
+                                >
+                                    Contact
+                                </p>
+                                <p
+                                    style="
+                                        font-size: 14pt;
+                                        color: #d97706;
+                                        font-weight: 600;
+                                        margin: 0;
+                                    "
+                                >
+                                    blair@andersonassociates.net
+                                </p>
+                                <p
+                                    style="
+                                        font-size: 11pt;
+                                        color: #4b5a70;
+                                        margin-top: 4px;
+                                    "
+                                >
+                                    anderson &amp; associates llc
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chart/plugin.js"></script>
+        <script>
+            Reveal.initialize({
+                width: 1280,
+                height: 720,
+                margin: 0,
+                controls: true,
+                progress: true,
+                slideNumber: false,
+                hash: true,
+                transition: "slide",
+                center: false,
+                plugins: [RevealChart],
+                chart: {
+                    defaults: Object.assign(
+                        {
+                            color: "rgba(0, 0, 0, 0.8)",
+                            borderColor: "rgba(0, 0, 0, 0.8)",
+                            devicePixelRatio: 2,
+                        },
+                        window.location.search.includes("export")
+                            ? { animation: false }
+                            : {},
+                    ),
+                },
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposal — Looped Sustainability × Blair Anderson</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── VARIABLES ── */
+    :root {
+      --amber:         #D97706;
+      --amber-hover:   #B45309;
+      --amber-light:   #FEF3C7;
+      --green:         #2D7D46;
+      --green-light:   #DCFCE7;
+      --green-border:  #BBF7D0;
+      --text-primary:  #111827;
+      --text-secondary:#4B5563;
+      --text-muted:    #6B7280;
+      --text-faint:    #9CA3AF;
+      --bg:            #FFFFFF;
+      --surface:       #F9FAFB;
+      --muted-bg:      #F3F4F6;
+      --border:        #E5E7EB;
+      --border-strong: #D1D5DB;
+    }
+
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Instrument Sans', -apple-system, sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg);
+    }
+    a { color: var(--amber); text-decoration: none; }
+    a:hover { color: var(--amber-hover); }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .container--wide { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 64px 0; border-top: 1px solid var(--border); }
+    section:first-of-type { border-top: none; }
+
+    /* ── STICKY NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+      gap: 8px;
+    }
+    .nav-brand {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 4px;
+      transition: color 150ms ease-out, background 150ms ease-out;
+      white-space: nowrap;
+    }
+    .nav-links a:hover {
+      color: var(--text-primary);
+      background: var(--muted-bg);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 0 64px;
+      border-top: none;
+    }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--amber);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--green);
+    }
+    .hero-sub {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hero-meta-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .hero-meta-value {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* ── HEADINGS ── */
+    h2.section-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .section-desc {
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      max-width: 560px;
+    }
+    h3 {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      transition: border-color 150ms ease-out, box-shadow 150ms ease-out;
+    }
+    .card:hover {
+      border-color: var(--border-strong);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .card-grid {
+      display: grid;
+      gap: 16px;
+    }
+    .card-grid--2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card-grid--3 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+    /* ── QUOTE ── */
+    .quote-block {
+      border-left: 3px solid var(--amber);
+      padding: 16px 20px;
+      background: var(--amber-light);
+      border-radius: 0 6px 6px 0;
+      margin: 16px 0;
+    }
+    .quote-block p {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-size: 1.0625rem;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+    .quote-block cite {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--amber-hover);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 8px;
+      font-style: normal;
+    }
+
+    /* ── PAIN POINTS ── */
+    .pain-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .pain-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 8px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    .pain-tag--ops {
+      background: var(--green-light);
+      color: var(--green);
+      border: 1px solid var(--green-border);
+    }
+    .pain-tag--research {
+      background: var(--amber-light);
+      color: var(--amber-hover);
+      border: 1px solid #FDE68A;
+    }
+    .pain-tag--finance {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+    }
+    .pain-body {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+    .pain-quote {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.9375rem;
+      border-left: 2px solid var(--border-strong);
+      padding-left: 12px;
+    }
+
+    /* ── DELIVERABLE ITEMS ── */
+    .deliverable {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .deliverable:last-child { border-bottom: none; }
+    .deliverable-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-faint);
+      min-width: 28px;
+      padding-top: 2px;
+    }
+    .deliverable-body h3 { margin-bottom: 4px; }
+    .deliverable-body p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+    }
+    .deliverable-tag {
+      display: inline-flex;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+    .tag--andrew {
+      background: #EFF6FF;
+      color: #1D4ED8;
+    }
+    .tag--cort {
+      background: var(--amber-light);
+      color: var(--amber-hover);
+    }
+    .tag--both {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    /* ── PRICING ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .pricing-card--featured {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 1px var(--amber);
+    }
+    .pricing-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-faint);
+    }
+    .pricing-card--featured .pricing-label { color: var(--amber); }
+    .pricing-amount {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 2.25rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+    .pricing-amount span {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+    .pricing-detail {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .pricing-detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .pricing-includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .pricing-includes li {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .pricing-includes li::before {
+      content: "→";
+      color: var(--amber);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .deposit-note {
+      background: var(--amber-light);
+      border: 1px solid #FDE68A;
+      border-radius: 6px;
+      padding: 14px 18px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+    .deposit-note strong { color: var(--text-primary); }
+
+    /* ── HOW IT WORKS ── */
+    .model-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .model-item {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .model-item:last-child { border-bottom: none; }
+    .model-icon {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--amber);
+      background: var(--amber-light);
+      border: 1px solid #FDE68A;
+      border-radius: 6px;
+      padding: 6px 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .model-body h3 { margin-bottom: 4px; }
+    .model-body p { color: var(--text-secondary); font-size: 0.9375rem; }
+
+    /* ── TERMS SUMMARY ── */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .terms-item {
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+    .terms-item-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .terms-item-value {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+    .terms-item-note {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* ── CTA / NEXT STEPS ── */
+    .cta-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px;
+      text-align: center;
+    }
+    .cta-block h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .cta-block p {
+      color: var(--text-secondary);
+      max-width: 440px;
+      margin: 0 auto 28px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--text-primary);
+      color: #ffffff;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 6px;
+      transition: background 150ms ease-out;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: var(--amber);
+      color: #ffffff;
+    }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--text-primary);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 6px;
+      border: 1px solid var(--border-strong);
+      transition: border-color 150ms ease-out, background 150ms ease-out;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-secondary:hover {
+      border-color: var(--text-primary);
+      background: var(--muted-bg);
+      color: var(--text-primary);
+    }
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-subtext {
+      font-size: 0.875rem;
+      color: var(--text-faint);
+      margin-top: 16px !important;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .site-footer p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .footer-divider {
+      display: inline-block;
+      margin: 0 10px;
+      color: var(--border-strong);
+    }
+
+    /* ── RESULT HIGHLIGHT ── */
+    .result-highlight {
+      border-left: 2px solid var(--amber);
+      padding-left: 16px;
+      margin: 16px 0;
+    }
+    .result-highlight p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+    }
+    .result-highlight strong { color: var(--text-primary); }
+
+    /* ── UTILITIES ── */
+    .text-muted { color: var(--text-muted); }
+    .text-faint { color: var(--text-faint); }
+    .text-green { color: var(--green); }
+    .text-amber { color: var(--amber); }
+    .mb-4 { margin-bottom: 4px; }
+    .mb-8 { margin-bottom: 8px; }
+    .mb-16 { margin-bottom: 16px; }
+    .mb-24 { margin-bottom: 24px; }
+    .mb-32 { margin-bottom: 32px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-24 { margin-top: 24px; }
+    .small {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 48px 0 40px; }
+      .cta-block { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAV -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <span class="nav-brand">Looped × Blair Anderson</span>
+      <ul class="nav-links">
+        <li><a href="#heard">What We Heard</a></li>
+        <li><a href="#phase1">Phase 1</a></li>
+        <li><a href="#model">How It Works</a></li>
+        <li><a href="#investment">Investment</a></li>
+        <li><a href="#terms">Terms</a></li>
+        <li><a href="#next">Next Steps</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container--wide">
+      <span class="section-label">Proposal — April 28, 2026</span>
+      <h1>Automating <em>Looped's</em> back office,<br>starting with Andrew's inbox.</h1>
+      <p class="hero-sub">
+        A 3-month engagement to build the automation layer your business needs to grow without adding headcount. Fractional CTO, applied directly to your biggest operational bottlenecks.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Prepared by</span>
+          <span class="hero-meta-value">Blair Anderson</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Prepared for</span>
+          <span class="hero-meta-value">Cort Koenig &amp; Andrew Januik</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Company</span>
+          <span class="hero-meta-value">Looped Sustainability</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Start Date</span>
+          <span class="hero-meta-value">May 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE HEARD -->
+  <section id="heard">
+    <div class="container--wide">
+      <span class="section-label">What We Heard</span>
+      <h2 class="section-title">The gaps are clear. So is the fix.</h2>
+      <p class="section-desc">
+        Two conversations in two days, and the same three problems kept surfacing. These aren't abstract — they showed up in your words.
+      </p>
+
+      <div class="card-grid card-grid--3">
+
+        <div class="pain-card">
+          <span class="pain-tag pain-tag--finance">Finance / Ops</span>
+          <h3>The AP inbox nobody checks</h3>
+          <p class="pain-body">
+            Invoices arrive, sit in a shared email, and require manual extraction, manual verification against C-Trade, and manual posting to QuickBooks.
+          </p>
+          <p class="pain-quote">"That's why Andrew doesn't sleep anymore."<br>"We're living in the Stone Age."</p>
+        </div>
+
+        <div class="pain-card">
+          <span class="pain-tag pain-tag--research">Research</span>
+          <h3>20 hours per unusual lead</h3>
+          <p class="pain-body">
+            Every creative-solutions job requires researching end uses, locating buyers, building a call list. The reps are good at calling — not research. So leadership ends up doing it.
+          </p>
+          <p class="pain-quote">"The pain point is the 20 hours that go into finding that phone call."</p>
+        </div>
+
+        <div class="pain-card">
+          <span class="pain-tag pain-tag--ops">Operations</span>
+          <h3>The back office didn't scale with you</h3>
+          <p class="pain-body">
+            You grew faster than you expected, and you know it. Two new CS reps hired the day before our first meeting. The systems haven't kept pace.
+          </p>
+          <p class="pain-quote">"We've grown a little faster than we expected and weren't fully ready for it."</p>
+        </div>
+
+      </div>
+
+      <div class="quote-block mt-24">
+        <p>
+          The goal is automation that's invisible to your clients — nothing changes on their side. All the efficiency gains happen inside your operation.
+        </p>
+        <cite>Constraint from our meeting — important, agreed, and built into every deliverable below</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASE 1 -->
+  <section id="phase1">
+    <div class="container--wide">
+      <span class="section-label">Phase 1 — First 90 Days</span>
+      <h2 class="section-title">Four priorities. Highest value first.</h2>
+      <p class="section-desc">
+        The Build Phase backlog is maintained collaboratively — you and I adjust priorities week to week based on what's actually burning. These are the four agreed starting points, in priority order.
+      </p>
+
+      <div class="deliverable">
+        <div class="deliverable-num">01</div>
+        <div class="deliverable-body">
+          <span class="deliverable-tag tag--andrew">Andrew's #1</span>
+          <h3>AP / AR Invoice Automation</h3>
+          <p>
+            Monitors the AP email inbox, extracts invoice data from attachments (PDFs, Excel), validates amounts against C-Trade records, flags mismatches, and prepares QuickBooks postings for review. Andrew stops manually touching invoices. Discrepancies surface automatically rather than silently accumulating.
+          </p>
+          <div class="result-highlight mt-16">
+            <p><strong>Why first:</strong> Lowest risk (fully internal, clients never see it), highest daily pain for Andrew. Immediate, measurable relief.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="deliverable-num">02</div>
+        <div class="deliverable-body">
+          <span class="deliverable-tag tag--cort">Cort's Priority</span>
+          <h3>Material Research Agent</h3>
+          <p>
+            Plugs into the Trello pipeline. When a new opportunity card is created, the agent identifies likely non-obvious end uses for the material, surfaces nearby buyers and processors with contacts, and comments a prioritized "who to call" list with indicative pricing directly on the card. Sales reps get a research head start before they ever pick up the phone.
+          </p>
+          <div class="result-highlight mt-16">
+            <p><strong>Their framing:</strong> "Finds our best options, gives us a pricing guide, and tees up exactly who we need to call." That's exactly what this builds.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="deliverable-num">03</div>
+        <div class="deliverable-body">
+          <span class="deliverable-tag tag--both">Both Benefit</span>
+          <h3>Sales Call Transcription → Trello Enrichment</h3>
+          <p>
+            Background audio capture (Granola-style — no bot joining the call, nothing intrusive) generates a structured summary after each sales call: material specs, open questions, pricing signals, follow-up items. Summary is written directly to the relevant Trello card. Cards become as detailed as the ones Cort writes himself.
+          </p>
+          <div class="result-highlight mt-16">
+            <p><strong>Coaching layer available:</strong> Can add prompts like "Did you ask about volume timing?" to reinforce the sales process over time.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="deliverable-num">04</div>
+        <div class="deliverable-body">
+          <span class="deliverable-tag tag--both">Operations</span>
+          <h3>Workflow Audit &amp; Automation Roadmap</h3>
+          <p>
+            Document the major manual workflows end-to-end: freight quoting, account management, order tracking, document generation. Identify automation candidates by impact and risk. Prioritized roadmap that guides Retainer Phase work. This is how we know what to build next — so we're never guessing.
+          </p>
+          <div class="result-highlight mt-16">
+            <p><strong>Freight quoting and account management ops</strong> are the natural next layer after Phase 1. The audit makes sure we sequence them correctly.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="model">
+    <div class="container--wide">
+      <span class="section-label">The Model</span>
+      <h2 class="section-title">Fractional CTO. In practice, that means this.</h2>
+      <p class="section-desc">
+        Not project-by-project. An ongoing technical relationship where I hear where friction is and solve the right problems in the right order.
+      </p>
+
+      <div class="model-items">
+
+        <div class="model-item">
+          <span class="model-icon">Weekly</span>
+          <div class="model-body">
+            <h3>Weekly Sync</h3>
+            <p>
+              30–45 minutes. Review what shipped. Hear what's burning. Adjust priorities. This keeps us aligned without a lot of overhead.
+            </p>
+          </div>
+        </div>
+
+        <div class="model-item">
+          <span class="model-icon">Monthly</span>
+          <div class="model-body">
+            <h3>Written Summary</h3>
+            <p>
+              End of each month: what was built, current status on each project, what's next. Easy to share with stakeholders or use as a record.
+            </p>
+          </div>
+        </div>
+
+        <div class="model-item">
+          <span class="model-icon">Ongoing</span>
+          <div class="model-body">
+            <h3>Slack / Async Access</h3>
+            <p>
+              Day-to-day questions, edge cases, something breaks — fast loop without scheduling overhead. Not on-call, but reliably responsive during business hours.
+            </p>
+          </div>
+        </div>
+
+        <div class="model-item">
+          <span class="model-icon">Retainer</span>
+          <div class="model-body">
+            <h3>Bi-Weekly Sales Meeting Attendance (Month 4+)</h3>
+            <p>
+              Once we're in the Retainer Phase, I attend your sales meetings every other week (or weekly by agreement). Hearing deals in real time is how I build tools that actually match your process — not a guessed version of it.
+            </p>
+          </div>
+        </div>
+
+        <div class="model-item">
+          <span class="model-icon">Always</span>
+          <div class="model-body">
+            <h3>You Own Everything Built</h3>
+            <p>
+              All automations, integrations, scripts, and documentation belong to Looped upon receipt of payment for the month in which they were delivered. No vendor lock-in to me. Full handoff package included at any transition point.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTMENT -->
+  <section id="investment">
+    <div class="container--wide">
+      <span class="section-label">Investment</span>
+      <h2 class="section-title">Predictable monthly rate. No surprise bills.</h2>
+      <p class="section-desc">
+        Third-party costs (API subscriptions, hosting, software) are passed through at cost with your approval — no markup. Out-of-scope work requires a written amendment before it starts.
+      </p>
+
+      <div class="pricing-grid">
+
+        <div class="pricing-card pricing-card--featured">
+          <div>
+            <div class="pricing-label">Build Phase — Months 1–3</div>
+            <div class="pricing-amount">$6,500 <span>/ month</span></div>
+          </div>
+          <div class="pricing-detail">
+            <div class="pricing-detail-row">
+              <span>Commitment</span>
+              <span style="font-weight:600;color:var(--text-primary);">~20 hrs / week</span>
+            </div>
+            <div class="pricing-detail-row">
+              <span>Term</span>
+              <span style="font-weight:600;color:var(--text-primary);">3 months</span>
+            </div>
+            <div class="pricing-detail-row">
+              <span>Total (3 months)</span>
+              <span style="font-weight:600;color:var(--text-primary);">$19,500</span>
+            </div>
+          </div>
+          <ul class="pricing-includes">
+            <li>All 4 Phase 1 deliverables</li>
+            <li>Weekly syncs + monthly written summaries</li>
+            <li>Async access (Slack or email)</li>
+            <li>Full transition package at end of month 3</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <div>
+            <div class="pricing-label">Retainer Phase — Month 4+</div>
+            <div class="pricing-amount">$4,500 <span>/ month</span></div>
+          </div>
+          <div class="pricing-detail">
+            <div class="pricing-detail-row">
+              <span>Commitment</span>
+              <span style="font-weight:600;color:var(--text-primary);">~10 hrs / week</span>
+            </div>
+            <div class="pricing-detail-row">
+              <span>Term</span>
+              <span style="font-weight:600;color:var(--text-primary);">Month-to-month</span>
+            </div>
+            <div class="pricing-detail-row">
+              <span>Notice to cancel</span>
+              <span style="font-weight:600;color:var(--text-primary);">30 days</span>
+            </div>
+          </div>
+          <ul class="pricing-includes">
+            <li>Maintenance of all Phase 1 systems</li>
+            <li>Continued backlog-driven build work</li>
+            <li>Bi-weekly sales meeting attendance</li>
+            <li>Monthly written summaries</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="deposit-note">
+        <strong>Deposit to start:</strong> $3,250 (50% of Month 1 Build Phase fee), due on contract signature. Credited in full against the Month 1 invoice. Non-refundable if Looped terminates during the Initial Term other than for my uncured material breach.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TERMS SUMMARY -->
+  <section id="terms">
+    <div class="container--wide">
+      <span class="section-label">Agreement Summary</span>
+      <h2 class="section-title">The important stuff, without the legalese.</h2>
+      <p class="section-desc">
+        Full agreement is attached separately. Here's what matters for the decision.
+      </p>
+
+      <div class="terms-grid mb-24">
+
+        <div class="terms-item">
+          <div class="terms-item-label">Contractor</div>
+          <div class="terms-item-value">Anderson &amp; Associates LLC</div>
+          <div class="terms-item-note">Blair Anderson, independent contractor</div>
+        </div>
+
+        <div class="terms-item">
+          <div class="terms-item-label">Initial Term</div>
+          <div class="terms-item-value">3 Months</div>
+          <div class="terms-item-note">Terminable only for uncured material breach</div>
+        </div>
+
+        <div class="terms-item">
+          <div class="terms-item-label">Invoicing</div>
+          <div class="terms-item-value">1st of month</div>
+          <div class="terms-item-note">Due within 10 business days</div>
+        </div>
+
+        <div class="terms-item">
+          <div class="terms-item-label">Ownership</div>
+          <div class="terms-item-value">Looped owns all deliverables</div>
+          <div class="terms-item-note">Transfers on receipt of full monthly payment</div>
+        </div>
+
+        <div class="terms-item">
+          <div class="terms-item-label">Confidentiality</div>
+          <div class="terms-item-value">Mutual, 3 years</div>
+          <div class="terms-item-note">Portfolio reference only with permission</div>
+        </div>
+
+        <div class="terms-item">
+          <div class="terms-item-label">Governing Law</div>
+          <div class="terms-item-value">Washington State</div>
+          <div class="terms-item-note">King County, WA jurisdiction</div>
+        </div>
+
+        <div class="terms-item">
+          <div class="terms-item-label">Liability Cap</div>
+          <div class="terms-item-value">3 months of fees paid</div>
+          <div class="terms-item-note">No consequential damages (mutual)</div>
+        </div>
+
+        <div class="terms-item">
+          <div class="terms-item-label">Subcontractors</div>
+          <div class="terms-item-value">Permitted</div>
+          <div class="terms-item-note">Bound to same IP &amp; confidentiality terms</div>
+        </div>
+
+        <div class="terms-item">
+          <div class="terms-item-label">Out-of-Scope Rate</div>
+          <div class="terms-item-value">$150 / hour</div>
+          <div class="terms-item-note">Requires written amendment before work starts</div>
+        </div>
+
+      </div>
+
+      <p class="small">
+        <strong>Not included in this agreement:</strong> Custom platform to replace C-Trade · Cold email infrastructure · Staff training beyond basic tool onboarding · After-hours / emergency on-call support. These require a separate SOW.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section id="next">
+    <div class="container--wide">
+      <span class="section-label">Next Steps</span>
+      <h2 class="section-title mb-32">Three things to move forward.</h2>
+
+      <div class="card-grid card-grid--3 mb-32">
+
+        <div class="card">
+          <span class="section-label" style="font-size:0.6875rem;">Step 01</span>
+          <h3>Review this proposal</h3>
+          <p class="text-muted" style="font-size:0.9375rem;">
+            Read through the scope and terms. Flag anything that needs adjustment — scope, timing, or pricing. I'd rather fix it upfront than mid-engagement.
+          </p>
+        </div>
+
+        <div class="card" style="border-color: var(--amber); box-shadow: 0 0 0 1px var(--amber);">
+          <span class="section-label" style="font-size:0.6875rem;">Step 02</span>
+          <h3>Sign the agreement</h3>
+          <p class="text-muted" style="font-size:0.9375rem;">
+            The service agreement is the green light. Electronic signatures are valid. Once signed, I'll send a deposit invoice ($3,250) and we'll set a kick-off date for the week of May 5.
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="section-label" style="font-size:0.6875rem;">Step 03</span>
+          <h3>Coffee in Seattle — May 3 or May 9</h3>
+          <p class="text-muted" style="font-size:0.9375rem;">
+            Cort, you'll be in Seattle May 2–9. This is the handshake meeting. Proposal first — coffee is the close.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="cta-block">
+        <h2>Ready to stop doing it manually?</h2>
+        <p>
+          The first automation in your inbox. The research your reps need before they dial. Let's build it.
+        </p>
+        <div class="cta-actions">
+          <a href="mailto:blair@andersonassociates.net?subject=Looped%20Proposal%20%E2%80%94%20Ready%20to%20Sign&body=Blair%2C%0A%0AWe%27ve%20reviewed%20the%20proposal%20and%20are%20ready%20to%20move%20forward." class="btn-primary">
+            Email Blair to Sign
+          </a>
+          <a href="mailto:blair@andersonassociates.net?subject=Looped%20Proposal%20%E2%80%94%20Questions&body=Blair%2C%0A%0AWe%20have%20a%20few%20questions%20about%20the%20proposal%3A" class="btn-secondary">
+            Ask a Question
+          </a>
+        </div>
+        <p class="cta-subtext">blair@andersonassociates.net</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Anderson &amp; Associates LLC
+        <span class="footer-divider">·</span>
+        Prepared for Looped Sustainability
+        <span class="footer-divider">·</span>
+        April 28, 2026
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

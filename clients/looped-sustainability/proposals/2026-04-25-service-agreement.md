@@ -18,11 +18,8 @@ Consultant will provide fractional CTO and AI automation services as described i
 
 **Ongoing Term:** Month-to-month following the Initial Term ("Retainer Phase"), until terminated per Section 9.
 
-**Time Commitment:**
-- Build Phase: Approximately 20 hours per week
-- Retainer Phase: Approximately 10 hours per week
-
-Hours are estimates based on anticipated scope. Consultant will communicate proactively if a particular project requires materially more time and will seek written approval before exceeding the stated commitment by more than 20% in any given month.
+**Availability:**
+Consultant will maintain sufficient availability to deliver the services described in Exhibit A. Work is governed by outcomes and deliverables, not hours tracked. Consultant is not on-call and is not available for after-hours or emergency response unless separately agreed in writing. Consultant will respond to communications within one business day during normal business hours (Monday–Friday, 9am–5pm PT).
 
 ---
 

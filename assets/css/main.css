@@ -7,19 +7,19 @@
 /* See DESIGN.md for rationale and full token reference */
 
 @theme {
-  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-display: 'Geist', 'Inter', sans-serif;
   --font-body: 'Instrument Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   --color-bg: #FFFFFF;
-  --color-bg-surface: #F9FAFB;
-  --color-bg-muted: #F3F4F6;
-  --color-border: #E5E7EB;
-  --color-border-strong: #D1D5DB;
-  --color-text: #111827;
-  --color-text-secondary: #4B5563;
-  --color-text-muted: #6B7280;
-  --color-text-faint: #9CA3AF;
+  --color-bg-surface: #F8FAFC;
+  --color-bg-muted: #F1F5F9;
+  --color-border: #E2E8F0;
+  --color-border-strong: #CBD5E1;
+  --color-text: #0F172A;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748B;
+  --color-text-faint: #94A3B8;
   --color-accent: #D97706;
   --color-accent-hover: #B45309;
   --color-accent-light: #FEF3C7;
@@ -39,7 +39,8 @@
   /* Prose content styling for Jekyll markdown */
   .prose h2 {
     font-family: var(--font-display);
-    @apply mt-10 mb-4 text-[1.75rem] font-normal leading-tight tracking-tight;
+    @apply mt-10 mb-4 text-[1.75rem] font-semibold leading-tight;
+    letter-spacing: -0.025em;
   }
   .prose h3 {
     font-family: var(--font-body);
@@ -238,23 +239,26 @@
   /* Heading hierarchy */
   .heading-hero {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.1;
-    letter-spacing: -0.03em;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
     color: var(--color-text);
   }
   .heading-display {
     font-family: var(--font-display);
     font-size: 2.5rem;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
     color: var(--color-text);
   }
   .heading-section {
     font-family: var(--font-display);
     font-size: 1.75rem;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
     color: var(--color-text);
   }
 
@@ -342,14 +346,26 @@
     margin-top: 0.75rem;
   }
 
-  /* Post title — serif editorial style with hover */
+  /* Post title — Geist semibold, direct, hover to amber */
   .post-title {
     font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
     color: var(--color-text);
     transition: color 0.15s ease-out;
   }
   .group:hover .post-title {
     color: var(--color-accent);
+  }
+
+  /* Hero stat — JetBrains Mono at display scale for pricing and metrics */
+  .hero-stat {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+    line-height: 1.2;
   }
 
   /* Price callout */

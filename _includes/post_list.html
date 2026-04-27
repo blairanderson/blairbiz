@@ -10,7 +10,7 @@
       </p>
 
       <a href="{{ post.url | absolute_url }}" class="group no-underline">
-        <h3 class="mt-1 text-xl font-normal post-title">{{ post.title | strip_html }}</h3>
+        <h3 class="mt-1 text-lg post-title">{{ post.title | strip_html }}</h3>
         {% if post.subtitle %}
         <p class="mt-1" style="color: var(--color-text-secondary);">{{ post.subtitle | strip_html }}</p>
         {% endif %}

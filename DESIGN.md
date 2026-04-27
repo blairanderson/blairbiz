@@ -7,50 +7,51 @@
 - **Project type:** Marketing site with blog
 
 ## Aesthetic Direction
-- **Direction:** Industrial/Utilitarian
+- **Direction:** Engineering Tool — the site feels like it was built by the same person who builds client infrastructure. Not a brochure about engineering. Engineering.
 - **Decoration level:** Minimal
-- **Mood:** Function-first, confident, zero fluff. Like a well-organized workspace, not a brochure. Respects the visitor's time the way a $15K/week engineer respects deadlines.
-- **Reference sites:** thoughtbot.com (dark, editorial), hashrocket.com (clean, white, teal accent), fly.io (illustrative, playful). We deliberately break from all three.
+- **Mood:** Precise, technical, direct. Like reading a well-maintained README from someone who has strong opinions and no patience for decoration. The mono stats lead. The numbers are real. Nothing is there to impress — everything is there to inform.
+- **Reference sites:** nousresearch.com (sparse, cool-blue, monospace metadata as primary design element), freightsimple.com (clean precision SaaS, metrics-forward)
 
 ## Typography
-- **Display/Hero:** Instrument Serif — refined serif for headings gives authority and distinction. Every consultancy uses sans-serif. A serif says "taste and experience."
-- **Body:** Instrument Sans — clean, modern, pairs perfectly with Instrument Serif. Great readability at all sizes.
+- **Display/Hero:** Geist — Vercel's geometric sans. Developers recognize it from Next.js docs, the Vercel dashboard, tools they trust. Engineered, confident, zero editorial softness. 700–900 weight for headings.
+- **Body:** Instrument Sans — clean, modern, neutral. Pairs better with Geist than it ever did with Instrument Serif.
 - **UI/Labels:** Instrument Sans (same as body, semibold weight)
-- **Data/Tables:** JetBrains Mono — reinforces the engineering identity. Supports tabular-nums.
+- **Data/Tables:** JetBrains Mono — primary voice for stats, metrics, and pricing at hero scale. Not just accents. Numbers like `$15K`, `12+`, `100%` in the hero use mono. This is the deliberate design move.
 - **Code:** JetBrains Mono
-- **Loading:** Google Fonts CDN: `fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500`
+- **Loading:** Google Fonts CDN: `fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;900&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500`
 - **Scale:**
-  - Hero: clamp(2.5rem, 5vw, 4rem) / Instrument Serif, -0.03em tracking — homepage only
-  - Page title: 2.5rem/40px (Instrument Serif, -0.02em tracking)
-  - Section heading: 1.75rem/28px (Instrument Serif, -0.01em tracking)
+  - Hero: clamp(2.5rem, 5vw, 4.5rem) / Geist 700, -0.04em tracking — homepage only
+  - Page title: 2.5rem/40px (Geist 600, -0.03em tracking)
+  - Section heading: 1.75rem/28px (Geist 600, -0.025em tracking)
   - Subsection: 1.125rem/18px (Instrument Sans, semibold)
   - Body: 1rem/16px
   - Small/metadata: 0.875rem/14px
   - Label/mono: 0.75rem/12px (JetBrains Mono, uppercase, 0.05em tracking)
-  - Post titles: 1.25rem/20px (Instrument Serif, normal weight) — editorial authority in blog feed
+  - Hero stat: 1.5rem/24px (JetBrains Mono 700, -0.03em tracking) — for $15K, 12+, etc.
+  - Post titles: 1.125rem/18px (Geist 600, -0.02em tracking) — direct, not editorial
 
 ## Color
-- **Approach:** Restrained — one accent + neutrals, color is rare and meaningful
-- **Primary text:** #111827
-- **Secondary text:** #4B5563
-- **Muted text:** #6B7280
-- **Faint text:** #9CA3AF
+- **Approach:** Restrained — one accent + slate neutrals, color is rare and meaningful
+- **Primary text:** #0F172A
+- **Secondary text:** #334155
+- **Muted text:** #64748B
+- **Faint text:** #94A3B8
 - **Background:** #FFFFFF
-- **Surface:** #F9FAFB
-- **Muted background:** #F3F4F6
-- **Border:** #E5E7EB
-- **Border strong:** #D1D5DB
-- **Accent:** #D97706 (warm amber, CTAs and links)
+- **Surface:** #F8FAFC
+- **Muted background:** #F1F5F9
+- **Border:** #E2E8F0
+- **Border strong:** #CBD5E1
+- **Accent:** #D97706 (warm amber — unchanged. Against slate neutrals it reads as a circuit indicator, not agency warmth. Same hex, different context.)
 - **Accent hover:** #B45309
 - **Accent light:** #FEF3C7
 - **Code block background:** #0F172A (slate-900)
 - **Code block text:** #E2E8F0 (slate-200)
 - **Semantic:** success #059669, warning #D97706, error #DC2626, info #2563EB
-- **Dark mode:** Invert surfaces (#111827 bg, #1F2937 surface, #374151 muted). Lighten accent to #F59E0B. Reduce text contrast slightly (#F9FAFB primary, #D1D5DB secondary).
+- **Dark mode:** Slate surfaces (#0F172A bg, #1E293B surface, #334155 muted). Lighten accent to #FBBF24. Reduce text contrast slightly (#F8FAFC primary, #CBD5E1 secondary).
 
 ## Spacing
 - **Base unit:** 8px
-- **Density:** Comfortable
+- **Density:** Engineer's density — comfortable but tighter than a brochure. Decision-makers scan.
 - **Scale:** 2xs(2px) xs(4px) sm(8px) md(16px) lg(24px) xl(32px) 2xl(48px) 3xl(64px)
 
 ## Layout
@@ -78,9 +79,9 @@ CSS component classes in `assets/css/main.css`. Use these instead of inline styl
 ### Headings
 | Class | Size | Font | Use |
 |-------|------|------|-----|
-| `.heading-hero` | clamp(2.5rem, 5vw, 4rem) | Instrument Serif | Homepage hero only |
-| `.heading-display` | 2.5rem | Instrument Serif | Page titles |
-| `.heading-section` | 1.75rem | Instrument Serif | Section headings |
+| `.heading-hero` | clamp(2.5rem, 5vw, 4.5rem) | Geist 700 | Homepage hero only |
+| `.heading-display` | 2.5rem | Geist 600 | Page titles |
+| `.heading-section` | 1.75rem | Geist 600 | Section headings |
 
 ### Links
 | Class | Color | Hover | Use |
@@ -96,7 +97,7 @@ CSS component classes in `assets/css/main.css`. Use these instead of inline styl
 ### Buttons
 | Class | Style | Hover | Use |
 |-------|-------|-------|-----|
-| `.btn-primary` | Dark bg, white text | Amber bg | Primary CTA ("Let's Talk") |
+| `.btn-primary` | Dark slate bg (#0F172A), white text | Amber bg | Primary CTA ("Let's Talk") |
 | `.btn-secondary` | Transparent, border | Darker border | Secondary actions |
 | `.btn-ghost` | Transparent, amber text | Amber-hover text | Tertiary ("See Our Work →") |
 
@@ -106,11 +107,12 @@ CSS component classes in `assets/css/main.css`. Use these instead of inline styl
 - `.result-highlight` — 2px amber left-border + 1rem left-padding. Used for case study results
 
 ### Labels & Tags
-- `.section-label` — JetBrains Mono, 0.75rem, amber, uppercase, 0.05em tracking. The mono breadcrumb above headings
+- `.section-label` — JetBrains Mono, 0.75rem, amber, uppercase, 0.05em tracking. The mono metadata above headings. Functional, not decorative — it tells you where you are.
 - `.tech-tag` — JetBrains Mono, 0.75rem, muted bg pill. For skill tags and technology mentions
 - `.value-prop-number` — JetBrains Mono, 0.75rem, faint text. For numbered sequences ("01", "02", "03")
 - `.form-label` — JetBrains Mono, 0.75rem, muted, uppercase. Elevates form labels to engineering style
 - `.price-callout` — JetBrains Mono, amber-light bg, amber border. For pricing emphasis
+- `.hero-stat` — JetBrains Mono 700, 1.5rem, -0.03em tracking. For hero-level metrics ($15K, 12+, 100%)
 
 ### Forms
 - `.input` — full width, 10px/12px padding, border, 6px radius. Focus: amber border
@@ -118,11 +120,11 @@ CSS component classes in `assets/css/main.css`. Use these instead of inline styl
 
 ### Content
 - `.divider` — clean `<hr>`, 1px border-top, 3rem vertical margin
-- `.post-title` — Instrument Serif, group-hover to amber. Blog feed editorial treatment
+- `.post-title` — Geist 600, group-hover to amber. Direct and precise in the blog feed.
 
 ### Prose
 Markdown content rendered inside `.prose` containers gets automatic styling:
-- H2: Instrument Serif, 1.75rem, normal weight
+- H2: Geist, 1.75rem, 600 weight, -0.025em tracking
 - H3: Instrument Sans, 1.125rem, semibold
 - Paragraphs: secondary text color, relaxed leading
 - Links: amber with underline, hover to amber-hover
@@ -131,12 +133,13 @@ Markdown content rendered inside `.prose` containers gets automatic styling:
 
 ## Design Principles
 1. **The content is the design.** No decorative elements, illustrations, or stock photos. Typography and whitespace do the work.
-2. **Serif headings, sans body.** The one deliberate "design move." Instrument Serif for headings gives editorial authority. Instrument Sans for everything else stays clean.
-3. **Amber, not blue.** Every consultancy defaults to blue/teal. Amber is warm, confident, and rare in this space. Use it sparingly for CTAs and links only.
-4. **No fake agency aesthetics.** No client logo bars, team grids, or stock photography. Solo operator authenticity beats corporate theater.
-5. **Mono accents for engineering cred.** JetBrains Mono for code blocks, tech tags, section labels, and data. Reinforces "this person ships code."
-6. **Mono section labels create information hierarchy.** The `.section-label` pattern (amber mono text above a serif heading) creates a two-level hierarchy that gives context before the reader reaches the main heading. Used on homepage, services, case studies, page layouts, and blog posts.
-7. **Structured cards over flat markdown.** Service descriptions, case studies, and value propositions use `.card` containers with consistent internal hierarchy instead of plain markdown lists. Cards create visual rhythm and scannable structure for decision-makers who won't read every word.
+2. **Mono stats as the hero voice.** The one deliberate design move: JetBrains Mono at hero scale for pricing, metrics, and key numbers. The first thing a visitor sees is the price in a monospace font. That says more about who you are than any tagline.
+3. **Geist for headings, sans for body.** Geist is what senior developers see in the tools they trust. It signals engineering authority without trying. Instrument Sans keeps body copy clean and readable.
+4. **Amber, not blue.** Every consultancy defaults to blue/teal. Amber is warm, confident, and rare in this space. Against slate neutrals it sharpens into a system indicator. Use it sparingly for CTAs and links only.
+5. **No fake agency aesthetics.** No client logo bars, team grids, or stock photography. Solo operator authenticity beats corporate theater.
+6. **Mono accents carry the engineering identity.** JetBrains Mono for code blocks, tech tags, section labels, hero stats, and data. The mono is the brand.
+7. **Mono section labels create information hierarchy.** The `.section-label` pattern (amber mono text above a Geist heading) creates a two-level hierarchy that gives context before the reader reaches the main heading. Functional metadata, not decoration.
+8. **Structured cards over flat markdown.** Service descriptions, case studies, and value propositions use `.card` containers with consistent internal hierarchy instead of plain markdown lists.
 
 ## Decisions Log
 | Date | Decision | Rationale |
@@ -146,6 +149,7 @@ Markdown content rendered inside `.prose` containers gets automatic styling:
 | 2026-03-29 | Amber #D97706 accent | Warm, confident alternative to ubiquitous blue/teal in tech consulting space |
 | 2026-03-29 | No client logos or team photos | Authenticity for solo operator positioning, let case studies carry credibility |
 | 2026-03-29 | Full site refresh + component library | 14 CSS component classes added, all inline styles and JS hover handlers eliminated, 33 legacy Beautiful Jekyll files removed |
-| 2026-03-29 | Post titles in Instrument Serif | Blog feed gets editorial authority — serif titles create a different visual register than the sans body text |
-| 2026-03-29 | Mono section labels pattern | `.section-label` above headings creates two-level hierarchy. Used consistently across homepage, services, case studies, and page layouts |
-| 2026-03-29 | Hero typography at 4rem | Homepage headline scaled to clamp(2.5rem, 5vw, 4rem) with -0.03em tracking for more commanding presence |
+| 2026-04-27 | Drop Instrument Serif, adopt Geist | Serif was reading as editorial/literary agency. Geist is Vercel's font — developers clock it from Next.js docs and the Vercel dashboard. It says "I build the same tools you use" without saying anything. Researched: nousresearch.com, freightsimple.com, aceworkflow.io, pythian.com. |
+| 2026-04-27 | Cool palette from gray-* to slate-* | Warm grays (#111827 base) were compounding the "craft agency" signal. Slate-900 (#0F172A) base is cooler and more technical. Amber at #D97706 unchanged — same hex, sharper against the new context. |
+| 2026-04-27 | JetBrains Mono promoted to hero stats | Mono was only in labels and code. Now hero-level metrics ($15K, 12+, years) use `.hero-stat` — JetBrains Mono 700 at 1.5rem. The price in monospace is the first technical signal a visitor receives. |
+| 2026-04-27 | Post titles from Instrument Serif to Geist 600 | Consistency with heading system. No serif anywhere in the type hierarchy. |

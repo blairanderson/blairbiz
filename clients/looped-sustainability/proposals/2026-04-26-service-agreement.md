@@ -26,6 +26,8 @@ Hours are estimates based on anticipated scope. Consultant will communicate proa
 
 **Retainer Phase (Month 4+):** $4,500 per month
 
+**Deposit:** Upon execution of this agreement, Client shall pay a deposit of $3,250 (equal to 50% of the first month's Build Phase fee). This deposit will be credited in full against the Month 1 invoice. The deposit is non-refundable if Client terminates this agreement during the Initial Term other than for Consultant's uncured material breach.
+
 Invoices are issued on the 1st of each month and are due within 10 business days. Payments more than 15 days past due accrue interest at 1.5% per month. Consultant may pause work on overdue accounts after written notice.
 
 **Third-party costs** (API subscriptions, hosting, software licenses) required to deliver the services will be approved by Client in advance and billed at cost with no markup.
@@ -57,7 +59,7 @@ Consultant will flag scope expansion requests promptly rather than absorbing the
 
 **6. INTELLECTUAL PROPERTY**
 
-**6.1 Client-Owned Work Product.** All work product created specifically for Client under this agreement — including automations, integrations, scripts, workflows, and documentation — shall be owned by Client upon receipt of full payment for the month in which the work was delivered. Prior to full payment, all such work product remains the property of Consultant.
+**6.1 Client-Owned Work Product.** All work product created specifically for Client under this agreement — including automations, integrations, scripts, workflows, and documentation — shall be owned by Client upon receipt of full payment for the month in which the work was delivered. Prior to full payment, all such work product remains the property of Consultant. In the event of Client's material breach of any payment obligation: (a) Consultant's obligation to transfer ownership of any work product for which full payment has not been received is suspended; and (b) any license granted to Client under Section 6.2 to use Background IP embedded in previously delivered work product is immediately revocable by Consultant upon written notice, and Client shall cease use of such Background IP until the breach is cured.
 
 **6.2 Consultant-Owned Background IP.** Consultant retains full ownership of all tools, frameworks, code libraries, templates, prompt structures, and methodologies that Consultant developed prior to or independently of this engagement ("Background IP"). Background IP includes but is not limited to: automation templates, LLM prompt frameworks, reusable workflow blueprints, and general-purpose code libraries. Client receives a non-exclusive, royalty-free, perpetual license to use Background IP solely as embedded within deliverables produced under this agreement. Client may not extract, resell, or sublicense Background IP separately from those deliverables.
 
@@ -109,11 +111,11 @@ Consultant may perform services for other clients during the term of this agreem
 
 **13. DATA HANDLING**
 
-In performing services, Consultant may access Client data including email correspondence, financial records, and business communications ("Client Data"). Consultant agrees to: (a) access Client Data only as necessary to perform services under this agreement; (b) not use Client Data for any purpose outside the services; (c) implement reasonable security measures appropriate to the sensitivity of the data; (d) notify Client promptly (within 48 hours) upon discovery of any unauthorized access to or disclosure of Client Data; and (e) upon termination, delete or destroy Client Data in Consultant's possession within 30 days of Client's written request. Client Data remains the property of Client.
+In performing services, Consultant may access Client data including email correspondence, financial records, and business communications ("Client Data"). Consultant agrees to: (a) access Client Data only as necessary to perform services under this agreement; (b) not use Client Data for any purpose outside the services; (c) implement reasonable security measures appropriate to the sensitivity of the data; (d) notify Client promptly (within 72 hours) upon discovery of any unauthorized access to or disclosure of Client Data; and (e) upon termination, delete or destroy Client Data in Consultant's possession within 30 days of Client's written request. Client Data remains the property of Client.
 
 **14. LIMITATION OF LIABILITY**
 
-Neither party shall be liable for indirect, incidental, or consequential damages arising from this engagement. Consultant's total liability shall not exceed the fees paid in the three (3) months immediately preceding the claim. The foregoing limitations shall not apply to either party's gross negligence, willful misconduct, or fraud, or to obligations arising under Section 10 (Indemnification).
+Neither party shall be liable for indirect, incidental, or consequential damages arising from this engagement. Consultant's total liability shall not exceed the fees paid in the three (3) months immediately preceding the claim. The foregoing limitations shall not apply to either party's willful misconduct or fraud, or to obligations arising under Section 10 (Indemnification).
 
 **15. FORCE MAJEURE**
 
@@ -125,7 +127,7 @@ Neither party may assign this agreement without the prior written consent of the
 
 **17. GOVERNING LAW**
 
-This agreement is governed by the laws of the State of Washington, without giving effect to conflicts of law principles. Any disputes will be resolved in King County, Washington.
+This agreement is governed by the laws of the State of Washington, without giving effect to conflicts of law principles. Any disputes will be resolved in King County, Washington. In any action to enforce this agreement, the prevailing party shall be entitled to recover its reasonable attorneys' fees and costs from the non-prevailing party.
 
 **18. MISCELLANEOUS**
 

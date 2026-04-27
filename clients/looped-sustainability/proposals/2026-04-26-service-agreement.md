@@ -1,12 +1,12 @@
 # Fractional CTO Services Agreement
 
-**Consultant:** Blair Anderson / Anderson Associates
-**Client:** Looped Sustainability
+**Consultant:** Anderson & Associates LLC
+**Client:** Looped Sustainable LLC
 **Effective Date:** _______________
 
 **1. SERVICES**
 
-Consultant will provide fractional CTO and AI automation services as described in Exhibit A (Statement of Work) attached to this agreement. Consultant will apply professional judgment in determining the best technical approaches to achieve the outcomes described.
+Consultant will provide technology advisory and professional services, including **software development**, **workflow automation**, and **artificial intelligence system design and implementation**, as described in Exhibit A (Statement of Work) attached to this agreement. Consultant will apply professional judgment in determining the best technical approaches to achieve the outcomes described.
 
 **2. TERM & COMMITMENT**
 
@@ -57,13 +57,11 @@ Consultant will flag scope expansion requests promptly rather than absorbing the
 
 **6. INTELLECTUAL PROPERTY**
 
-All work product created specifically for Client under this agreement — including automations, integrations, scripts, and documentation — shall be owned by Client upon receipt of full payment for the month in which the work was delivered.
+**6.1 Client-Owned Work Product.** All work product created specifically for Client under this agreement — including automations, integrations, scripts, workflows, and documentation — shall be owned by Client upon receipt of full payment for the month in which the work was delivered. Prior to full payment, all such work product remains the property of Consultant.
 
-Notwithstanding the above, Consultant retains full ownership of all pre-existing tools, frameworks, code libraries, templates, prompt structures, and methodologies that Consultant brings into the engagement ("Background IP"). Client receives a non-exclusive, royalty-free license to use Background IP solely as embedded within deliverables produced under this agreement.
+**6.2 Consultant-Owned Background IP.** Consultant retains full ownership of all tools, frameworks, code libraries, templates, prompt structures, and methodologies that Consultant developed prior to or independently of this engagement ("Background IP"). Background IP includes but is not limited to: automation templates, LLM prompt frameworks, reusable workflow blueprints, and general-purpose code libraries. Client receives a non-exclusive, royalty-free, perpetual license to use Background IP solely as embedded within deliverables produced under this agreement. Client may not extract, resell, or sublicense Background IP separately from those deliverables.
 
-Client grants Consultant a limited, non-exclusive license to access and use Client's systems, data, and pre-existing intellectual property solely as necessary to perform the Services described in Exhibit A.
-
-For the avoidance of doubt: any custom load management platform or application built to replace C-Trade, if undertaken, will be governed by a separate agreement that explicitly addresses IP ownership for that project.
+**6.3 Client Background IP.** Client retains full ownership of all data, systems, and intellectual property it owned prior to this engagement. Consultant receives a limited, non-exclusive license to access and use Client's systems and data solely as necessary to perform the Services.
 
 **7. CONFIDENTIALITY**
 
@@ -91,7 +89,7 @@ For twelve (12) months following the termination of this agreement, neither part
 
 **10. INDEMNIFICATION**
 
-Each party ("Indemnifying Party") shall indemnify, defend, and hold harmless the other party and its officers, directors, employees, and agents ("Indemnified Party") from and against any third-party claims, losses, liabilities, damages, costs, and expenses (including reasonable attorneys' fees) arising from or relating to: (a) any material breach of this agreement by the Indemnifying Party; or (b) the Indemnifying Party's gross negligence or willful misconduct. The provisions of this section survive termination of this agreement.
+Client shall indemnify, defend, and hold harmless Consultant from and against any third-party claims arising from Client's direction, requirements, or deployment of systems built under this agreement. Consultant shall indemnify, defend, and hold harmless Client from and against any third-party claims arising from Consultant's fraud or willful misconduct. These obligations survive termination of this agreement.
 
 **11. TERMINATION**
 
@@ -111,7 +109,7 @@ Consultant may perform services for other clients during the term of this agreem
 
 **13. DATA HANDLING**
 
-In performing services, Consultant may access Client data including email correspondence, financial records, and business communications ("Client Data"). Consultant agrees to: (a) access Client Data only as necessary to perform services under this agreement; (b) not use Client Data to train AI models or for any purpose outside the services; (c) implement reasonable security measures appropriate to the sensitivity of the data; (d) notify Client promptly (within 48 hours) upon discovery of any unauthorized access to or disclosure of Client Data; and (e) upon termination, delete or destroy Client Data in Consultant's possession within 30 days of Client's written request. Client Data remains the property of Client.
+In performing services, Consultant may access Client data including email correspondence, financial records, and business communications ("Client Data"). Consultant agrees to: (a) access Client Data only as necessary to perform services under this agreement; (b) not use Client Data for any purpose outside the services; (c) implement reasonable security measures appropriate to the sensitivity of the data; (d) notify Client promptly (within 48 hours) upon discovery of any unauthorized access to or disclosure of Client Data; and (e) upon termination, delete or destroy Client Data in Consultant's possession within 30 days of Client's written request. Client Data remains the property of Client.
 
 **14. LIMITATION OF LIABILITY**
 
@@ -119,7 +117,7 @@ Neither party shall be liable for indirect, incidental, or consequential damages
 
 **15. FORCE MAJEURE**
 
-Neither party shall be in breach of this agreement for delays or non-performance caused by circumstances beyond their reasonable control, including illness, natural disasters, government actions, or third-party service outages, provided the affected party gives prompt written notice and resumes performance as soon as reasonably practicable.
+Neither party shall be in breach of this agreement for delays or non-performance caused by circumstances beyond their reasonable control, including natural disasters, government actions, or third-party service outages, provided the affected party gives prompt written notice and resumes performance as soon as reasonably practicable.
 
 **16. ASSIGNMENT**
 
@@ -145,11 +143,11 @@ This agreement is governed by the laws of the State of Washington, without givin
 
 IN WITNESS WHEREOF, the parties have executed this agreement as of the Effective Date.
 
-**Anderson Associates**
+**Anderson & Associates LLC**
 
 Signature: _______________________________
 Name: Blair Anderson
-Title: Owner, Anderson Associates
+Title: President, Anderson & Associates LLC
 Date: _______________
 
 **Looped Sustainability**
@@ -164,36 +162,22 @@ Date: _______________
 
 **Build Phase Services (Months 1–3)**
 
-*Workstream 1: AP/AR & Invoice Automation*
-- Monitor Client's AP Gmail inbox for incoming invoices
-- Extract invoice data (vendor, amount, line items, due date, payment terms)
-- Route and record invoice data into QuickBooks Online
-- Flag exceptions requiring human review
-- Deliver documentation for Client's internal use
+Consultant will maintain a prioritized backlog of work items in collaboration with Client. Consultant works on the highest-priority items each week, as agreed. Priorities may be adjusted at any time by mutual agreement.
 
-*Workstream 2: Sales Call Transcription & Trello Integration*
-- Configure transcription tooling (Granola or equivalent) for Client's team
-- Build integration to auto-generate structured Trello cards from call summaries
-- Define and implement Trello card template (material, volume, location, contact, next steps)
-- Train Client team on tool usage
+**Ceremonies:**
+- Weekly sync to review progress and adjust priorities
+- Monthly written summary of completed work and upcoming priorities
 
-*Workstream 3: Workflow Audit & Automation Roadmap*
-- Document all major manual workflows (truck scheduling, load confirmation, document generation, AR follow-up)
-- Identify and prioritize automation opportunities
-- Deliver written roadmap for Month 3 and Retainer Phase
-
-*Workstream 4: Research Agent (Months 2–3)*
-- Build AI-powered material matching research agent
-- Inputs: material type, volume, location, constraints
-- Outputs: ranked list of 15–25 potential buyers with company name, contact info, geographic fit, and estimated freight cost
-- Integrate freight estimation from load boards and broker networks beyond Client's current relationships
-- Deliver user-facing interface or workflow for sales team use
+**Initial Backlog Priorities:**
+- AP/AR invoice automation (monitor inbox, extract invoice data, route to QuickBooks, flag exceptions)
+- Sales call transcription and Trello integration (transcription tooling, structured Trello cards from call summaries)
+- Workflow audit and automation roadmap (document major manual workflows, identify and prioritize automation opportunities)
+- AI-powered material matching research agent (match material type, volume, and location to ranked buyer list with freight estimates)
 
 **Retainer Phase Services (Month 4+)**
 
-- Bi-weekly attendance at Client sales meetings (or weekly cadence by mutual agreement)
-- Ongoing identification and resolution of manual workflow friction
-- Technology vendor evaluation and recommendations
+Consultant will continue backlog-driven work at reduced capacity (~10 hrs/week), including:
+- Attendance at Client sales meetings (bi-weekly, or weekly by mutual agreement)
 - Maintenance and iteration on systems built during Build Phase
 - Monthly written summary of work completed and upcoming priorities
 
@@ -201,6 +185,6 @@ Date: _______________
 
 - Custom platform to replace C-Trade (load management)
 - Cold email or outbound campaign infrastructure and execution
-- Staff training beyond tool onboarding sessions
+- Staff training beyond tool onboarding
 - After-hours or emergency on-call support
 - Hosting and third-party API costs (passed through at cost with advance approval)

@@ -261,7 +261,9 @@ include:
 
 # Exclude these files from production site
 exclude:
+  - bin/
   - CLAUDE.md
+  - DESIGN.md
   - CHANGELOG.md
   - CNAME
   - Gemfile

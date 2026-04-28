@@ -2,7 +2,7 @@
 
 ## Product Context
 - **What this is:** Marketing and credibility site for Blair Anderson's custom software agency
-- **Who it's for:** Decision-makers (CTOs, founders, ops leads) evaluating a $15K/week senior engineering engagement
+- **Who it's for:** Decision-makers (CTOs, founders, ops leads) evaluating a $5K/week senior engineering engagement
 - **Space/industry:** Software consulting, boutique/solo engineering agencies
 - **Project type:** Marketing site with blog
 
@@ -16,7 +16,7 @@
 - **Display/Hero:** Geist — Vercel's geometric sans. Developers recognize it from Next.js docs, the Vercel dashboard, tools they trust. Engineered, confident, zero editorial softness. 700–900 weight for headings.
 - **Body:** Instrument Sans — clean, modern, neutral. Pairs better with Geist than it ever did with Instrument Serif.
 - **UI/Labels:** Instrument Sans (same as body, semibold weight)
-- **Data/Tables:** JetBrains Mono — primary voice for stats, metrics, and pricing at hero scale. Not just accents. Numbers like `$15K`, `12+`, `100%` in the hero use mono. This is the deliberate design move.
+- **Data/Tables:** JetBrains Mono — primary voice for stats, metrics, and pricing at hero scale. Not just accents. Numbers like `$5K`, `12+`, `100%` in the hero use mono. This is the deliberate design move.
 - **Code:** JetBrains Mono
 - **Loading:** Google Fonts CDN: `fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;900&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500`
 - **Scale:**
@@ -27,7 +27,7 @@
   - Body: 1rem/16px
   - Small/metadata: 0.875rem/14px
   - Label/mono: 0.75rem/12px (JetBrains Mono, uppercase, 0.05em tracking)
-  - Hero stat: 1.5rem/24px (JetBrains Mono 700, -0.03em tracking) — for $15K, 12+, etc.
+  - Hero stat: 1.5rem/24px (JetBrains Mono 700, -0.03em tracking) — for $5K, 12+, etc.
   - Post titles: 1.125rem/18px (Geist 600, -0.02em tracking) — direct, not editorial
 
 ## Color
@@ -112,7 +112,7 @@ CSS component classes in `assets/css/main.css`. Use these instead of inline styl
 - `.value-prop-number` — JetBrains Mono, 0.75rem, faint text. For numbered sequences ("01", "02", "03")
 - `.form-label` — JetBrains Mono, 0.75rem, muted, uppercase. Elevates form labels to engineering style
 - `.price-callout` — JetBrains Mono, amber-light bg, amber border. For pricing emphasis
-- `.hero-stat` — JetBrains Mono 700, 1.5rem, -0.03em tracking. For hero-level metrics ($15K, 12+, 100%)
+- `.hero-stat` — JetBrains Mono 700, 1.5rem, -0.03em tracking. For hero-level metrics ($5K, 12+, 100%)
 
 ### Forms
 - `.input` — full width, 10px/12px padding, border, 6px radius. Focus: amber border
@@ -151,5 +151,5 @@ Markdown content rendered inside `.prose` containers gets automatic styling:
 | 2026-03-29 | Full site refresh + component library | 14 CSS component classes added, all inline styles and JS hover handlers eliminated, 33 legacy Beautiful Jekyll files removed |
 | 2026-04-27 | Drop Instrument Serif, adopt Geist | Serif was reading as editorial/literary agency. Geist is Vercel's font — developers clock it from Next.js docs and the Vercel dashboard. It says "I build the same tools you use" without saying anything. Researched: nousresearch.com, freightsimple.com, aceworkflow.io, pythian.com. |
 | 2026-04-27 | Cool palette from gray-* to slate-* | Warm grays (#111827 base) were compounding the "craft agency" signal. Slate-900 (#0F172A) base is cooler and more technical. Amber at #D97706 unchanged — same hex, sharper against the new context. |
-| 2026-04-27 | JetBrains Mono promoted to hero stats | Mono was only in labels and code. Now hero-level metrics ($15K, 12+, years) use `.hero-stat` — JetBrains Mono 700 at 1.5rem. The price in monospace is the first technical signal a visitor receives. |
+| 2026-04-27 | JetBrains Mono promoted to hero stats | Mono was only in labels and code. Now hero-level metrics ($5K, 12+, years) use `.hero-stat` — JetBrains Mono 700 at 1.5rem. The price in monospace is the first technical signal a visitor receives. |
 | 2026-04-27 | Post titles from Instrument Serif to Geist 600 | Consistency with heading system. No serif anywhere in the type hierarchy. |

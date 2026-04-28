@@ -4,9 +4,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-BLAIR.BIZ is the website for Blair Anderson's custom software agency, a full-service software, automation, and AI consultancy based in Kirkland, WA. The consulting fee is $15K/week for onsite engagements where Blair directly architects solutions and ships code alongside your team.
+BLAIR.BIZ is the website for Blair Anderson's software/automation agency, a full-service software, automation, and AI consultancy based in Kirkland, WA. 
+The consulting fee is roughly $5K/week for onsite engagements where Blair directly architects solutions and ships code alongside your team.
 
-This site serves as the public face of the business: establishing authority, attracting clients, and showcasing expertise in custom software, automation, and AI. Built with Jekyll and Tailwind CSS v4, deployed to Cloudflare Pages via GitHub Actions.
+CLIENTS business management data is stored in @clients/* directory 
+
+- "LS" @clients/looped-sustainability/*
+- "GM" @clients/grassmaster/*
+- "AA" @clients/anderson-associates/*
+
+If you see a client directory that does not have a matching short-code:
+AskUserQuestion("What is the acronym or shortcode for $BUSINESS-DIRECTORY")
+Write the acronym back into this file above. 
+
+The remainder of this directory serves as the website public face of the business: 
+- establishing authority
+- attracting clients
+- showcasing expertise in custom software, automation, and AI. 
+
+The site is built with Jekyll and Tailwind CSS v4, deployed to Cloudflare via GitHub Actions.
 
 ## Development Commands
 

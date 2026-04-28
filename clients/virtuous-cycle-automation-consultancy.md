@@ -86,5 +86,5 @@ The firms that don't build this flywheel now will be structurally unable to comp
 The flywheel for a consultancy isn't about volume — it's about *compounding specificity*. The longer
 you run it, the more your past work does the selling, the scoping, and the delivery for you.
 
-The $15K/week positioning is only defensible long-term if the flywheel is spinning. Each week you
+The $5K/week positioning is only defensible long-term if the flywheel is spinning. Each week you
 ship should make the next week cheaper to deliver and easier to sell.

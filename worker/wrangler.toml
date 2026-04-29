@@ -1,0 +1,16 @@
+name = "contact-ai"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[ai]
+binding = "AI"
+
+# FROM_ADDRESS must be a verified sender in Cloudflare Email Routing
+[vars]
+FROM_ADDRESS = "hello@blair.biz"
+
+[[send_email]]
+name = "SEND_EMAIL"
+
+# Set secrets via:
+#   wrangler secret put JWT_SECRET

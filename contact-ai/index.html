@@ -1,0 +1,299 @@
+---
+title: Chat with Blair
+layout: base
+---
+
+<style>
+  /* Full-viewport chat — hide footer, make main a flex column */
+  html, body { height: 100%; overflow: hidden; }
+  footer { display: none; }
+  main { display: flex; flex-direction: column; }
+
+  /* Smooth token streaming */
+  .bubble-ai { white-space: pre-wrap; word-break: break-word; }
+</style>
+
+<div id="chat" class="flex flex-col flex-1 min-h-0">
+
+  <!-- Message feed -->
+  <div id="messages" class="flex-1 min-h-0 overflow-y-auto">
+    <div id="msg-list" class="px-4 sm:px-8 py-6 space-y-4 max-w-[680px] mx-auto">
+    </div>
+  </div>
+
+  <!-- Input bar -->
+  <div class="flex-none px-4 sm:px-8 py-4" style="border-top: 1px solid var(--color-border); background: var(--color-bg);">
+    <div class="max-w-[680px] mx-auto space-y-2">
+      <form id="form" class="flex gap-2">
+        <input id="input" class="input flex-1"
+               type="email" autocomplete="email"
+               placeholder="you@company.com" />
+        <button id="submit-btn" class="btn-primary" type="submit"
+                style="transition-property: background, transform; white-space: nowrap;">
+          Send
+        </button>
+      </form>
+      <p id="status" class="text-xs" style="color: var(--color-text-muted); min-height: 1.2em;"></p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  // ── Config ────────────────────────────────────────────────────────────────
+  // Update WORKER_URL after deploying: npx wrangler deploy (inside worker/)
+  const WORKER_URL = 'http://localhost:8787';
+
+  // ── State ─────────────────────────────────────────────────────────────────
+  let state = 'INIT'; // INIT | SENT | VERIFIED
+  let otpToken = null;
+  let session = null;
+  let messages = []; // conversation history for /chat
+
+  // ── DOM refs ──────────────────────────────────────────────────────────────
+  const msgList  = document.getElementById('msg-list');
+  const messages$ = document.getElementById('messages');
+  const form     = document.getElementById('form');
+  const input    = document.getElementById('input');
+  const submitBtn = document.getElementById('submit-btn');
+  const status   = document.getElementById('status');
+
+  // ── Helpers ───────────────────────────────────────────────────────────────
+  function escHtml(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  function scrollToBottom() {
+    messages$.scrollTop = messages$.scrollHeight;
+  }
+
+  function setStatus(msg, isError) {
+    status.textContent = msg;
+    status.style.color = isError
+      ? 'var(--color-error)'
+      : 'var(--color-text-muted)';
+  }
+
+  function setLoading(on) {
+    submitBtn.disabled = on;
+    input.disabled = on;
+    submitBtn.textContent = on ? '…' : 'Send';
+  }
+
+  // ── Bubble builders ───────────────────────────────────────────────────────
+  function appendAiBubble(text) {
+    const wrap = document.createElement('div');
+    wrap.className = 'flex gap-3 items-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.cssText = [
+      'width:24px; height:24px; border-radius:50%; flex-shrink:0;',
+      'border:1px solid var(--color-border);',
+      'background:var(--color-bg-muted);',
+      'display:flex; align-items:center; justify-content:center;',
+      'margin-top:2px;',
+      'font-family:var(--font-mono); font-size:10px; font-weight:700;',
+      'color:var(--color-accent);',
+    ].join('');
+    avatar.textContent = 'B';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'card bubble-ai p-3 text-sm leading-relaxed';
+    bubble.style.cssText = 'color:var(--color-text-secondary); max-width:85%;';
+    bubble.textContent = text;
+
+    wrap.appendChild(avatar);
+    wrap.appendChild(bubble);
+    msgList.appendChild(wrap);
+    scrollToBottom();
+    return bubble;
+  }
+
+  function appendUserBubble(text) {
+    const wrap = document.createElement('div');
+    wrap.className = 'flex justify-end';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'text-sm leading-relaxed px-4 py-3 rounded-lg';
+    bubble.style.cssText = [
+      'background:var(--color-text); color:var(--color-bg);',
+      'max-width:85%; word-break:break-word;',
+    ].join('');
+    bubble.textContent = text;
+
+    wrap.appendChild(bubble);
+    msgList.appendChild(wrap);
+    scrollToBottom();
+  }
+
+  // ── Init ──────────────────────────────────────────────────────────────────
+  appendAiBubble("Hi! I'm Blair's AI assistant. What's your email address?");
+
+  // ── Submit handler ────────────────────────────────────────────────────────
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const val = input.value.trim();
+    if (!val) return;
+
+    input.value = '';
+    setStatus('');
+
+    if (state === 'INIT')     return handleEmail(val);
+    if (state === 'SENT')     return handleOtp(val);
+    if (state === 'VERIFIED') return handleChat(val);
+  });
+
+  // ── INIT: collect email, send OTP ─────────────────────────────────────────
+  async function handleEmail(email) {
+    appendUserBubble(email);
+    setLoading(true);
+
+    try {
+      const res = await fetch(WORKER_URL + '/email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+
+      if (!res.ok || !data.sent) {
+        appendAiBubble(data.error || 'Something went wrong — please try again.');
+        return;
+      }
+
+      otpToken = data.token;
+      state = 'SENT';
+
+      input.type = 'text';
+      input.inputMode = 'numeric';
+      input.autocomplete = 'one-time-code';
+      input.placeholder = '6-digit code';
+
+      appendAiBubble(
+        'Check your inbox — we sent a 6-digit code to ' + email + '. ' +
+        'Enter it here to start chatting.'
+      );
+      setStatus('Code expires in 10 minutes.');
+
+    } catch {
+      appendAiBubble("Couldn't reach the server. Please try again.");
+    } finally {
+      setLoading(false);
+      input.focus();
+    }
+  }
+
+  // ── SENT: validate OTP, get session ───────────────────────────────────────
+  async function handleOtp(otp) {
+    appendUserBubble(otp);
+    setLoading(true);
+
+    try {
+      const res = await fetch(WORKER_URL + '/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: otpToken, otp }),
+      });
+      const data = await res.json();
+
+      if (!data.valid) {
+        appendAiBubble(data.error || 'Incorrect code — please try again.');
+        return;
+      }
+
+      session = data.session;
+      state = 'VERIFIED';
+
+      input.type = 'text';
+      input.inputMode = 'text';
+      input.autocomplete = 'off';
+      input.placeholder = "Ask me anything about Blair's services…";
+
+      appendAiBubble(
+        "You're verified! I'm here to help you learn about Blair's software consulting. " +
+        "What are you working on?"
+      );
+      setStatus('');
+
+    } catch {
+      appendAiBubble("Couldn't verify. Please try again.");
+    } finally {
+      setLoading(false);
+      input.focus();
+    }
+  }
+
+  // ── VERIFIED: stream AI response ──────────────────────────────────────────
+  async function handleChat(text) {
+    appendUserBubble(text);
+    messages.push({ role: 'user', content: text });
+
+    setLoading(true);
+    setStatus('Thinking…');
+
+    const bubble = appendAiBubble('');
+
+    try {
+      const res = await fetch(WORKER_URL + '/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + session,
+        },
+        body: JSON.stringify({ messages }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        bubble.textContent = err.error || 'Something went wrong.';
+        return;
+      }
+
+      // Read SSE stream: data: {"response":"token"}\n\ndata: [DONE]\n\n
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+      let fullResponse = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() ?? '';
+
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          const chunk = line.slice(6).trim();
+          if (chunk === '[DONE]') continue;
+          try {
+            const parsed = JSON.parse(chunk);
+            if (parsed.response) {
+              fullResponse += parsed.response;
+              bubble.textContent = fullResponse;
+              scrollToBottom();
+            }
+          } catch { /* partial JSON — ignore */ }
+        }
+      }
+
+      if (fullResponse) {
+        messages.push({ role: 'assistant', content: fullResponse });
+      }
+      setStatus('');
+
+    } catch {
+      bubble.textContent = 'Connection error — please try again.';
+    } finally {
+      setLoading(false);
+      input.focus();
+    }
+  }
+
+})();
+</script>

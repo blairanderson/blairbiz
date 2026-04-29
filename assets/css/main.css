@@ -48,6 +48,7 @@
   }
   .prose p {
     color: var(--color-text-secondary);
+    text-wrap: pretty;
     @apply mb-4 leading-relaxed;
   }
   .prose ul {
@@ -128,11 +129,14 @@
     border-radius: 6px;
     border: none;
     cursor: pointer;
-    transition: background 0.15s ease-out;
+    transition: background 0.15s ease-out, transform 0.15s ease-out;
   }
   .btn-primary:hover {
     background: var(--color-accent-hover);
     color: #fff;
+  }
+  .btn-primary:active {
+    transform: scale(0.96);
   }
 
   .btn-secondary {
@@ -147,7 +151,7 @@
     border-radius: 6px;
     border: 1px solid var(--color-border-strong);
     cursor: pointer;
-    transition: all 0.15s ease-out;
+    transition: border-color 0.15s ease-out;
   }
   .btn-secondary:hover {
     border-color: var(--color-text);
@@ -244,6 +248,7 @@
     line-height: 1.05;
     letter-spacing: -0.04em;
     color: var(--color-text);
+    text-wrap: balance;
   }
   .heading-display {
     font-family: var(--font-display);
@@ -252,6 +257,7 @@
     line-height: 1.1;
     letter-spacing: -0.03em;
     color: var(--color-text);
+    text-wrap: balance;
   }
   .heading-section {
     font-family: var(--font-display);
@@ -260,6 +266,7 @@
     line-height: 1.15;
     letter-spacing: -0.025em;
     color: var(--color-text);
+    text-wrap: balance;
   }
 
   /* Links — replace all onmouseover/onmouseout JS */

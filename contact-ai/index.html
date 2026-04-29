@@ -13,6 +13,9 @@ layout: base
   .bubble-ai { white-space: pre-wrap; word-break: break-word; }
 </style>
 
+<!-- Turnstile in explicit-render mode so we control when the widget mounts -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+
 <div id="chat" class="flex flex-col flex-1 min-h-0">
 
   <!-- Message feed -->
@@ -21,8 +24,8 @@ layout: base
     </div>
   </div>
 
-  <!-- Input bar -->
-  <div class="flex-none px-4 sm:px-8 py-4" style="border-top: 1px solid var(--color-border); background: var(--color-bg);">
+  <!-- Input bar (hidden until Turnstile passes) -->
+  <div id="input-bar" class="flex-none px-4 sm:px-8 py-4" style="border-top: 1px solid var(--color-border); background: var(--color-bg); display: none;">
     <div class="max-w-[680px] mx-auto space-y-2">
       <form id="form" class="flex gap-2">
         <input id="input" class="input flex-1"
@@ -42,71 +45,64 @@ layout: base
 <script>
 (function () {
   // ── Config ────────────────────────────────────────────────────────────────
-  // Update WORKER_URL after deploying: npx wrangler deploy (inside worker/)
-  const WORKER_URL = 'https://contact-ai.blair-ddc.workers.dev';
+  const WORKER_URL         = 'https://contact-ai.blair-ddc.workers.dev';
+  const TURNSTILE_SITE_KEY = 'YOUR_TURNSTILE_SITE_KEY'; // dash.cloudflare.com → Turnstile → Add site
 
   // ── State ─────────────────────────────────────────────────────────────────
-  let state = 'INIT'; // INIT | SENT | VERIFIED
+  let state    = 'TURNSTILE'; // TURNSTILE | INIT | SENT | VERIFIED
   let otpToken = null;
-  let session = null;
-  let messages = []; // conversation history for /chat
+  let session  = null;
+  let messages = [];
 
   // ── DOM refs ──────────────────────────────────────────────────────────────
-  const msgList  = document.getElementById('msg-list');
+  const msgList   = document.getElementById('msg-list');
   const messages$ = document.getElementById('messages');
-  const form     = document.getElementById('form');
-  const input    = document.getElementById('input');
+  const inputBar  = document.getElementById('input-bar');
+  const form      = document.getElementById('form');
+  const input     = document.getElementById('input');
   const submitBtn = document.getElementById('submit-btn');
-  const status   = document.getElementById('status');
+  const status    = document.getElementById('status');
 
   // ── Helpers ───────────────────────────────────────────────────────────────
-  function escHtml(str) {
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-  }
-
   function scrollToBottom() {
     messages$.scrollTop = messages$.scrollHeight;
   }
 
   function setStatus(msg, isError) {
     status.textContent = msg;
-    status.style.color = isError
-      ? 'var(--color-error)'
-      : 'var(--color-text-muted)';
+    status.style.color = isError ? 'var(--color-error)' : 'var(--color-text-muted)';
   }
 
   function setLoading(on) {
     submitBtn.disabled = on;
-    input.disabled = on;
+    input.disabled     = on;
     submitBtn.textContent = on ? '…' : 'Send';
   }
 
   // ── Bubble builders ───────────────────────────────────────────────────────
-  function appendAiBubble(text) {
-    const wrap = document.createElement('div');
-    wrap.className = 'flex gap-3 items-start';
-
-    const avatar = document.createElement('div');
-    avatar.style.cssText = [
+  function makeAvatar() {
+    const el = document.createElement('div');
+    el.style.cssText = [
       'width:24px; height:24px; border-radius:50%; flex-shrink:0;',
-      'border:1px solid var(--color-border);',
-      'background:var(--color-bg-muted);',
-      'display:flex; align-items:center; justify-content:center;',
-      'margin-top:2px;',
+      'border:1px solid var(--color-border); background:var(--color-bg-muted);',
+      'display:flex; align-items:center; justify-content:center; margin-top:2px;',
       'font-family:var(--font-mono); font-size:10px; font-weight:700;',
       'color:var(--color-accent);',
     ].join('');
-    avatar.textContent = 'B';
+    el.textContent = 'B';
+    return el;
+  }
+
+  function appendAiBubble(text) {
+    const wrap   = document.createElement('div');
+    wrap.className = 'flex gap-3 items-start';
 
     const bubble = document.createElement('div');
     bubble.className = 'card bubble-ai p-3 text-sm leading-relaxed';
     bubble.style.cssText = 'color:var(--color-text-secondary); max-width:85%;';
     bubble.textContent = text;
 
-    wrap.appendChild(avatar);
+    wrap.appendChild(makeAvatar());
     wrap.appendChild(bubble);
     msgList.appendChild(wrap);
     scrollToBottom();
@@ -114,15 +110,12 @@ layout: base
   }
 
   function appendUserBubble(text) {
-    const wrap = document.createElement('div');
+    const wrap   = document.createElement('div');
     wrap.className = 'flex justify-end';
 
     const bubble = document.createElement('div');
     bubble.className = 'text-sm leading-relaxed px-4 py-3 rounded-lg';
-    bubble.style.cssText = [
-      'background:var(--color-text); color:var(--color-bg);',
-      'max-width:85%; word-break:break-word;',
-    ].join('');
+    bubble.style.cssText = 'background:var(--color-text); color:var(--color-bg); max-width:85%; word-break:break-word;';
     bubble.textContent = text;
 
     wrap.appendChild(bubble);
@@ -130,8 +123,77 @@ layout: base
     scrollToBottom();
   }
 
+  // ── Turnstile ─────────────────────────────────────────────────────────────
+  let turnstileWidgetId = null;
+
+  function showTurnstileWidget() {
+    const wrap = document.createElement('div');
+    wrap.className = 'flex gap-3 items-start';
+    wrap.id = 'ts-wrap';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'card p-4';
+    bubble.style.maxWidth = '85%';
+
+    const widgetDiv = document.createElement('div');
+    widgetDiv.id = 'ts-widget';
+
+    bubble.appendChild(widgetDiv);
+    wrap.appendChild(makeAvatar());
+    wrap.appendChild(bubble);
+    msgList.appendChild(wrap);
+    scrollToBottom();
+
+    // Poll until Turnstile script is loaded, then render explicitly
+    function tryRender() {
+      if (window.turnstile) {
+        turnstileWidgetId = window.turnstile.render('#ts-widget', {
+          sitekey:  TURNSTILE_SITE_KEY,
+          theme:    'light',
+          callback: onTurnstilePassed,
+        });
+      } else {
+        setTimeout(tryRender, 50);
+      }
+    }
+    tryRender();
+  }
+
+  async function onTurnstilePassed(token) {
+    try {
+      const res  = await fetch(WORKER_URL + '/turnstile', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ token }),
+      });
+      const data = await res.json();
+
+      if (!data.valid) {
+        // Reset widget so they can try again
+        if (window.turnstile && turnstileWidgetId !== null) {
+          window.turnstile.reset(turnstileWidgetId);
+        }
+        appendAiBubble(data.error || 'Verification failed — please try again.');
+        return;
+      }
+    } catch {
+      appendAiBubble("Couldn't verify. Please refresh and try again.");
+      return;
+    }
+
+    // Turnstile passed — remove widget, show input bar, move to INIT
+    const tsWrap = document.getElementById('ts-wrap');
+    if (tsWrap) tsWrap.remove();
+
+    state = 'INIT';
+    inputBar.style.display = '';
+    appendAiBubble("Thanks! What's your email address?");
+    input.focus();
+  }
+
   // ── Init ──────────────────────────────────────────────────────────────────
-  appendAiBubble("Hi! I'm Blair's AI assistant. What's your email address?");
+  appendAiBubble("Hi! Quick human check before we chat.");
+  showTurnstileWidget();
 
   // ── Submit handler ────────────────────────────────────────────────────────
   form.addEventListener('submit', async function (e) {
@@ -153,10 +215,10 @@ layout: base
     setLoading(true);
 
     try {
-      const res = await fetch(WORKER_URL + '/email', {
-        method: 'POST',
+      const res  = await fetch(WORKER_URL + '/email', {
+        method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body:    JSON.stringify({ email }),
       });
       const data = await res.json();
 
@@ -166,17 +228,14 @@ layout: base
       }
 
       otpToken = data.token;
-      state = 'SENT';
+      state    = 'SENT';
 
-      input.type = 'text';
-      input.inputMode = 'numeric';
+      input.type        = 'text';
+      input.inputMode   = 'numeric';
       input.autocomplete = 'one-time-code';
       input.placeholder = '6-digit code';
 
-      appendAiBubble(
-        'Check your inbox — we sent a 6-digit code to ' + email + '. ' +
-        'Enter it here to start chatting.'
-      );
+      appendAiBubble('Check your inbox — we sent a 6-digit code to ' + email + '. Enter it here to start chatting.');
       setStatus('Code expires in 10 minutes.');
 
     } catch {
@@ -193,10 +252,10 @@ layout: base
     setLoading(true);
 
     try {
-      const res = await fetch(WORKER_URL + '/verify', {
-        method: 'POST',
+      const res  = await fetch(WORKER_URL + '/verify', {
+        method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token: otpToken, otp }),
+        body:    JSON.stringify({ token: otpToken, otp }),
       });
       const data = await res.json();
 
@@ -206,17 +265,14 @@ layout: base
       }
 
       session = data.session;
-      state = 'VERIFIED';
+      state   = 'VERIFIED';
 
-      input.type = 'text';
-      input.inputMode = 'text';
+      input.type        = 'text';
+      input.inputMode   = 'text';
       input.autocomplete = 'off';
       input.placeholder = "Ask me anything about Blair's services…";
 
-      appendAiBubble(
-        "You're verified! I'm here to help you learn about Blair's software consulting. " +
-        "What are you working on?"
-      );
+      appendAiBubble("You're verified! I'm here to help you learn about Blair's software consulting. What are you working on?");
       setStatus('');
 
     } catch {
@@ -239,9 +295,9 @@ layout: base
 
     try {
       const res = await fetch(WORKER_URL + '/chat', {
-        method: 'POST',
+        method:  'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type':  'application/json',
           'Authorization': 'Bearer ' + session,
         },
         body: JSON.stringify({ messages }),
@@ -254,7 +310,7 @@ layout: base
       }
 
       // Read SSE stream: data: {"response":"token"}\n\ndata: [DONE]\n\n
-      const reader = res.body.getReader();
+      const reader  = res.body.getReader();
       const decoder = new TextDecoder();
       let buffer = '';
       let fullResponse = '';
@@ -282,9 +338,7 @@ layout: base
         }
       }
 
-      if (fullResponse) {
-        messages.push({ role: 'assistant', content: fullResponse });
-      }
+      if (fullResponse) messages.push({ role: 'assistant', content: fullResponse });
       setStatus('');
 
     } catch {

@@ -6,6 +6,7 @@ export interface Env {
   SEND_EMAIL: SendEmail;
   JWT_SECRET: string;
   FROM_ADDRESS: string;
+  TURNSTILE_SECRET_KEY: string;
 }
 
 const CORS = {
@@ -39,6 +40,31 @@ export default {
     const { pathname } = new URL(request.url);
 
     try {
+      // ── POST /turnstile ──────────────────────────────────────────────────────
+      // Verifies a Cloudflare Turnstile token. Must pass before email is collected.
+      if (pathname === '/turnstile') {
+        const body = (await request.json()) as { token?: string };
+        const token = (body.token ?? '').trim();
+
+        if (!token) return json({ valid: false, error: 'Missing token.' }, 400);
+
+        const form = new FormData();
+        form.append('secret', env.TURNSTILE_SECRET_KEY);
+        form.append('response', token);
+
+        const verifyRes = await fetch(
+          'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+          { method: 'POST', body: form },
+        );
+        const result = (await verifyRes.json()) as { success: boolean };
+
+        if (!result.success) {
+          return json({ valid: false, error: 'Verification failed. Please try again.' }, 401);
+        }
+
+        return json({ valid: true });
+      }
+
       // ── POST /email ─────────────────────────────────────────────────────────
       // Accepts { email }, generates a signed OTP JWT, sends the 6-digit code
       // via email, and returns { sent: true, token } to the frontend.

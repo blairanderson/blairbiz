@@ -9,8 +9,9 @@ binding = "AI"
 [vars]
 FROM_ADDRESS = "hello@blair.biz"
 
-[[send_email]]
-name = "SEND_EMAIL"
+# [[send_email]]
+# name = "SEND_EMAIL"
+# Uncomment once hello@blair.biz is verified in Cloudflare Email Routing dashboard
 
 # Set secrets via:
 #   wrangler secret put JWT_SECRET
